@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Proyecto.Models;
@@ -38,7 +40,7 @@ namespace Proyecto.Controllers
             Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper()
             };
 
-            return RedirectToAction("CrearCita");
+            return View();
         }
         public IActionResult CrearCita()
         {
