@@ -1,0 +1,79 @@
+﻿@model Proyecto.Models.DatosPaciente
+
+@{
+    ViewData["Title"] = "CrearPaciente";
+}
+
+<h1>CrearPaciente</h1>
+
+<h4>DatosPaciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CrearPaciente">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombrePaciente" class="control-label"></label>
+                <input asp-for="NombrePaciente" class="form-control" required />
+                <span asp-validation-for="NombrePaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApellidoPaciente" class="control-label"></label>
+                <input asp-for="ApellidoPaciente" class="form-control" required />
+                <span asp-validation-for="ApellidoPaciente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DPI" class="control-label"></label>
+                <input asp-for="DPI" class="form-control" value="0" />
+                <span asp-validation-for="DPI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PartidaDeNacimiento" class="control-label"></label>
+                <input asp-for="PartidaDeNacimiento" type="date" class="form-control" required/>
+                <span asp-validation-for="PartidaDeNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select required @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Departamento, "", new { @class = "text-danger" })>
+                    <option value="">Elige una opción</option>
+                    <option>Alta Verapaz</option>
+                    <option>Baja Verapaz</option>
+                    <option>Chimaltenango</option>
+                    <option>Chiquimula</option>
+                    <option>El Progreso</option>
+                    <option>Escuintla</option>
+                    <option>Guatemala</option>
+                    <option>Huehuetenango</option>
+                    <option>Izabal</option>
+                    <option>Jalapa</option>
+                    <option>Jutiapa</option>
+                    <option>Petén</option>
+                    <option>Quetzaltenango</option>
+                    <option>Quiché</option>
+                    <option>Retalhuleu</option>
+                    <option>Sacatepéquez</option>
+                    <option>San Marcos</option>
+                    <option>Santa Rosa</option>
+                    <option>Sololá</option>
+                    <option>Suchitepéquez</option>
+                    <option>Totonicapán</option>
+                    <option>Zacapa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Municipio" class="control-label"></label>
+                <input asp-for="Municipio" class="form-control" required/>
+                <span asp-validation-for="Municipio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear Usuario" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
