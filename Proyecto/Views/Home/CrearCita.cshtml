@@ -1,0 +1,75 @@
+﻿@model Proyecto.Models.DatosPaciente
+
+@{
+    ViewData["Title"] = "CrearCita";
+}
+
+<h1>Crear Cita</h1>
+
+<h4>Datos Paciente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CrearCita">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Trabajo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select required @Html.EditorFor(model => model.Trabajo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Trabajo, "", new { @class = "text-danger" })>
+                    <option value="">Elige una opción</option>
+                    <optgroup label="Trabajador de Establecimiento para la integridad:(1)">
+                        <option value="1">Asistencia a Pacientes con COVID-19</option>
+                        <option>Comunidad de apoyo, Comadronas, Promotores voluntarios y Terapeutas mayas</option>
+                        <option>Estudiantes de ciencias de la salud</option>
+                        <option>Cuerpos de socorro: Bomberos y paramedicos de ambulancias, trabajadores de funerarias, personal que labora en asilos</option>
+                        <option>Personas internas en hogares o instituciones de adultos mayores asilos</option>
+                        <option>Traajadores del sector de salud ADMINISTRATIVOS</option>
+                    </optgroup>
+                    <optgroup label="Trabajadores de Servicios Basicos:">
+                        <option>Sector seguridad nacional, (incluye PNC, PMT, militares y personal del sistema penitenciario)</option>
+                        <option>Registrados en municipalidades, y entidades que presntan servicios de Electricidad, Agua y recolección de basura</option>
+                        <option>Sector educación (maestros primario, básico, universitario, incluye funcionarios Ministerio de Educación)</option>
+                        <option>Sector justicia, (jueces, personal en tribunales)</option>
+                    </optgroup>
+                    <optgroup label="Otro::">
+                        <option>Otro Trabajo</option>
+                        <option>Ningun trabajo</option>
+                    </optgroup>
+
+                </select>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Enfermedades, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select required @Html.EditorFor(model => model.Enfermedades, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Enfermedades, "", new { @class = "text-danger" })>
+                    <option value="">Elige una opción</option>
+                    <option value="1">Hipertensión arterial que requiere medicamento</option>
+                    <option>Diabetes mellitus</option>
+                    <option>Enfermedad pulmonar crónica</option>
+                    <option>Enfermedad renal crónica</option>
+                    <option>Enfermedades cardiovasculares y cerebrovasculares</option>
+                    <option>Inmunosupresión (VIH, cáncer, uso de inmunosupresores)</option>
+                    <option>Obesidad (IMC ≥ 30)</option>
+                    <option>Otra o ninguna de estas enfermedades....</option>
+                </select>
+            </div>
+            @ViewData["ErrorUusario"]
+            <div class="form-group">
+                @Html.LabelFor(model => model.Hospital, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select required @Html.EditorFor(model => model.Hospital, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Hospital, "", new { @class = "text-danger" })>
+                    <option value="">Elige una opción</option>
+                    <option value="1">@ViewData["HOSPITAL1"]</option>
+                    <option value="2">@ViewData["HOSPITAL2"]</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
