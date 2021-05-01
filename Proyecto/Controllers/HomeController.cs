@@ -431,27 +431,6 @@ namespace Proyecto.Controllers
                 ViewData["MUN10"] = "Usumatlán";
                 ViewData["MUN11"] = "Zacapa";
             }
-            int PrioridadEdad = 0, PrioridadEnfermedad = 0 , PrioridadTrabajo = 0;
-            if (Singleton.Instance.ListaParaView[0].Edad >= 0)
-            {
-                PrioridadEdad = 7;
-            }
-            else if (Singleton.Instance.ListaParaView[0].Edad >= 50 && Singleton.Instance.ListaParaView[0].Edad <= 69)
-            {
-                PrioridadEdad = 8;
-            }
-            else if (Singleton.Instance.ListaParaView[0].Edad >= 40 && Singleton.Instance.ListaParaView[0].Edad <= 49)
-            {
-                PrioridadEdad = 13;
-            }
-            else 
-            {
-                PrioridadEdad = 14;
-            }
-
-
-            
-
             return View();
         }
         [HttpPost]
@@ -474,7 +453,7 @@ namespace Proyecto.Controllers
                 PrioridadEnfermedad = 7;
             }
 
-            if (Singleton.Instance.ListaParaView[0].Edad >= 0)
+            if (Singleton.Instance.ListaParaView[0].Edad >= 70)
             {
                 PrioridadEdad = 7;
             }
