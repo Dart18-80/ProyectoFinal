@@ -19,21 +19,21 @@
                     <option value="">Elige una opción</option>
                     <optgroup label="Trabajador de Establecimiento para la integridad:(1)">
                         <option value="1">Asistencia a Pacientes con COVID-19</option>
-                        <option>Comunidad de apoyo, Comadronas, Promotores voluntarios y Terapeutas mayas</option>
-                        <option>Estudiantes de ciencias de la salud</option>
-                        <option>Cuerpos de socorro: Bomberos y paramedicos de ambulancias, trabajadores de funerarias, personal que labora en asilos</option>
-                        <option>Personas internas en hogares o instituciones de adultos mayores asilos</option>
-                        <option>Traajadores del sector de salud ADMINISTRATIVOS</option>
+                        <option value="2">Comunidad de apoyo, Comadronas, Promotores voluntarios y Terapeutas mayas</option>
+                        <option value="3">Estudiantes de ciencias de la salud</option>
+                        <option value="4">Cuerpos de socorro: Bomberos y paramedicos de ambulancias, trabajadores de funerarias, personal que labora en asilos</option>
+                        <option value="5">Personas internas en hogares o instituciones de adultos mayores asilos</option>
+                        <option value="6">Traajadores del sector de salud ADMINISTRATIVOS</option>
                     </optgroup>
                     <optgroup label="Trabajadores de Servicios Basicos:">
-                        <option>Sector seguridad nacional, (incluye PNC, PMT, militares y personal del sistema penitenciario)</option>
-                        <option>Registrados en municipalidades, y entidades que presntan servicios de Electricidad, Agua y recolección de basura</option>
-                        <option>Sector educación (maestros primario, básico, universitario, incluye funcionarios Ministerio de Educación)</option>
-                        <option>Sector justicia, (jueces, personal en tribunales)</option>
+                        <option value="9">Sector seguridad nacional, (incluye PNC, PMT, militares y personal del sistema penitenciario)</option>
+                        <option value="10">Registrados en municipalidades, y entidades que presntan servicios de Electricidad, Agua y recolección de basura</option>
+                        <option value="11">Sector educación (maestros primario, básico, universitario, incluye funcionarios Ministerio de Educación)</option>
+                        <option value="12">Sector justicia, (jueces, personal en tribunales)</option>
                     </optgroup>
                     <optgroup label="Otro::">
-                        <option>Otro Trabajo</option>
-                        <option>Ningun trabajo</option>
+                        <option value="15">Otro Trabajo</option>
+                        <option value="15">Ningun trabajo</option>
                     </optgroup>
 
                 </select>
@@ -44,15 +44,16 @@
                         @Html.ValidationMessageFor(model => model.Enfermedades, "", new { @class = "text-danger" })>
                     <option value="">Elige una opción</option>
                     <option value="1">Hipertensión arterial que requiere medicamento</option>
-                    <option>Diabetes mellitus</option>
-                    <option>Enfermedad pulmonar crónica</option>
-                    <option>Enfermedad renal crónica</option>
-                    <option>Enfermedades cardiovasculares y cerebrovasculares</option>
-                    <option>Inmunosupresión (VIH, cáncer, uso de inmunosupresores)</option>
-                    <option>Obesidad (IMC ≥ 30)</option>
-                    <option>Otra o ninguna de estas enfermedades....</option>
+                    <option value="1">Diabetes mellitus</option>
+                    <option value="1">Enfermedad pulmonar crónica</option>
+                    <option value="1">Enfermedad renal crónica</option>
+                    <option value="1">Enfermedades cardiovasculares y cerebrovasculares</option>
+                    <option value="1">Inmunosupresión (VIH, cáncer, uso de inmunosupresores)</option>
+                    <option value="1">Obesidad (IMC ≥ 30)</option>
+                    <option value="0">Otra o ninguna de estas enfermedades....</option>
                 </select>
             </div>
+            @ViewData["SINMUNI"]
             <div class="form-group">
                 @Html.LabelFor(model => model.Municipio, htmlAttributes: new { @class = "control-label col-md-2" })
                 <select required @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })

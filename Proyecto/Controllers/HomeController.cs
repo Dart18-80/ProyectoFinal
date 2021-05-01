@@ -35,8 +35,8 @@ namespace Proyecto.Controllers
             var NuevoPaciente = new Models.DatosPaciente { 
             NombrePaciente=Regex.Replace(collection["NombrePaciente"], @"\s", "").ToUpper(),
             ApellidoPaciente= Regex.Replace(collection["ApellidoPaciente"], @"\s", "").ToUpper(),
-            DPIPartidadenacimiento = Regex.Replace(collection["DPIPartidadenacimiento"], @"\s", ""),
-            FechadeNacimiento= collection["FechadeNacimiento"],
+            DPIPartidadenacimiento = Convert.ToInt32(Regex.Replace(collection["DPIPartidadenacimiento"], @"\s", "")),
+            Edad= Convert.ToInt32(Regex.Replace(collection["Edad"], @"\s", "")),
             Departamento= Regex.Replace(collection["Departamento"], @"\s", "").ToUpper(),
             };
             Singleton.Instance.ListaParaView.Add(NuevoPaciente);
@@ -436,8 +436,16 @@ namespace Proyecto.Controllers
         [HttpPost]
         public IActionResult CrearCita(IFormCollection collection)
         {
-            var NuevaCrearCita = new Models.DatosPaciente { 
 
+            var NuevaCrearCita = new Models.DatosPaciente {
+                NombrePaciente = Singleton.Instance.ListaParaView[0].NombrePaciente,
+                ApellidoPaciente = Singleton.Instance.ListaParaView[0].ApellidoPaciente,
+                DPIPartidadenacimiento = Singleton.Instance.ListaParaView[0].DPIPartidadenacimiento,
+                Edad = Singleton.Instance.ListaParaView[0].Edad,
+                Departamento = Singleton.Instance.ListaParaView[0].Departamento,
+                Enfermedades = Regex.Replace(collection["Enfermedades"], @"\s", ""),
+                Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
+                Prioridad = 0
             };
             Singleton.Instance.ListaParaView.Clear();
             return View();
