@@ -18,6 +18,7 @@ namespace Proyecto.Helpers
                 return _instance;
             }
         }
+        public TablaHash<DatosPaciente> TablaHashPacientes = new TablaHash<DatosPaciente>(50);
         public List<DatosPaciente> ListaParaView = new List<DatosPaciente>();
     }
 }

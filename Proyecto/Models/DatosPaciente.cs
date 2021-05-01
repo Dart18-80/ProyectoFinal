@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Models
 {
-    public class DatosPaciente
+    public class DatosPaciente : IComparable
     {
         public string NombrePaciente { get; set; }
         public string ApellidoPaciente { get; set; }
@@ -17,5 +17,14 @@ namespace Proyecto.Models
         public string Enfermedades { get; set; }
         public string Hospital{ get; set; }
         public int Prioridad { get; set; }
+        public int CompareTo(object obj)
+        {
+            if (Convert.ToInt16(this.CompareTo(obj)) > 0)
+                return 1;
+            else if (Convert.ToInt16(this.CompareTo(obj)) < 0)
+                return -1;
+            else
+                return 0;
+        }
     }
 }
