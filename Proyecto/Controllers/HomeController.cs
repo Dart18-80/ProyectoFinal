@@ -35,7 +35,7 @@ namespace Proyecto.Controllers
             var NuevoPaciente = new Models.DatosPaciente { 
             NombrePaciente=Regex.Replace(collection["NombrePaciente"], @"\s", "").ToUpper(),
             ApellidoPaciente= Regex.Replace(collection["ApellidoPaciente"], @"\s", "").ToUpper(),
-            DPIPartidadenacimiento = Convert.ToInt32(Regex.Replace(collection["DPIPartidadenacimiento"], @"\s", "")),
+            DPIPartidadenacimiento = Regex.Replace(collection["DPIPartidadenacimiento"], @"\s", ""),
             Edad= Convert.ToInt32(Regex.Replace(collection["Edad"], @"\s", "")),
             Departamento= Regex.Replace(collection["Departamento"], @"\s", "").ToUpper(),
             };
@@ -437,18 +437,8 @@ namespace Proyecto.Controllers
         public IActionResult CrearCita(IFormCollection collection)
         {
             FuncionesDeApoyo CallFunc = new FuncionesDeApoyo();
-            var NuevaCrearCita = new Models.DatosPaciente {
-                NombrePaciente = Singleton.Instance.ListaParaView[0].NombrePaciente,
-                ApellidoPaciente = Singleton.Instance.ListaParaView[0].ApellidoPaciente,
-                DPIPartidadenacimiento = Singleton.Instance.ListaParaView[0].DPIPartidadenacimiento,
-                Edad = Singleton.Instance.ListaParaView[0].Edad,
-                Departamento = Singleton.Instance.ListaParaView[0].Departamento,
-                Enfermedades = Regex.Replace(collection["Enfermedades"], @"\s", ""),
-                Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
-                Prioridad = 0
-            };
             int PrioridadEdad = 0, PrioridadEnfermedad = 16, PrioridadTrabajo = 0;
-            if (collection["Enfermedades"] == 1) 
+            if (collection["Enfermedades"] == "1") 
             {
                 PrioridadEnfermedad = 7;
             }
@@ -471,6 +461,17 @@ namespace Proyecto.Controllers
             }
             PrioridadTrabajo = Convert.ToInt32(collection["Trabajo"]);
             int PrioridadTotal = CallFunc.Menor(PrioridadEdad,PrioridadEnfermedad,PrioridadTrabajo);
+            var NuevaCrearCita = new Models.DatosPaciente
+            {
+                NombrePaciente = Singleton.Instance.ListaParaView[0].NombrePaciente,
+                ApellidoPaciente = Singleton.Instance.ListaParaView[0].ApellidoPaciente,
+                DPIPartidadenacimiento = Singleton.Instance.ListaParaView[0].DPIPartidadenacimiento,
+                Edad = Singleton.Instance.ListaParaView[0].Edad,
+                Departamento = Singleton.Instance.ListaParaView[0].Departamento,
+                Enfermedades = Regex.Replace(collection["Enfermedades"], @"\s", ""),
+                Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
+                Prioridad = PrioridadTotal
+            };
             Singleton.Instance.ListaParaView.Clear();
             return View();
         }
