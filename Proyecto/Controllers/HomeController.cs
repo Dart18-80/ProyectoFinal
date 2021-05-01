@@ -62,7 +62,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "Senahú";
                 ViewData["MUN15"] = "Tamahú";
                 ViewData["MUN16"] = "Tactic";
-                ViewData["MUN17 "] = "Tucurú";
+                ViewData["MUN17"] = "Tucurú";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "BAJAVERAPAZ")
             {
@@ -134,7 +134,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "San Raymundo";
                 ViewData["MUN15"] = "Santa Catarina Pinula";
                 ViewData["MUN16"] = "Villa Canales";
-                ViewData["MUN17 "] = "Villa Nueva";
+                ViewData["MUN17"] = "Villa Nueva";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Huehuetenango".ToUpper())
             {
@@ -155,7 +155,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "San Gaspar Ixchil";
                 ViewData["MUN15"] = "San Ildefonso Ixtahuacán";
                 ViewData["MUN16"] = "San Juan Atitán";
-                ViewData["MUN17 "] = "San Juan Ixcoy";
+                ViewData["MUN17"] = "San Juan Ixcoy";
                 ViewData["MUN18"] = "San Mateo Ixtatán";
                 ViewData["MUN19"] = "San Miguel Acatán";
                 ViewData["MUN20"] = "San Pedro Nécta";
@@ -209,7 +209,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "San José Acatempa";
                 ViewData["MUN15"] = "Santa Catarina Mita";
                 ViewData["MUN16"] = "Yupiltepeque";
-                ViewData["MUN17 "] = "Zapotitlán";
+                ViewData["MUN17"] = "Zapotitlán";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Petén".ToUpper())
             {
@@ -246,7 +246,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "Palestina de Los Altos";
                 ViewData["MUN15"] = "Quetzaltenango";
                 ViewData["MUN16"] = "Salcajá";
-                ViewData["MUN17 "] = "San Carlos Sija";
+                ViewData["MUN17"] = "San Carlos Sija";
                 ViewData["MUN18"] = "San Francisco La Unión";
                 ViewData["MUN19"] = "San Juan Ostuncalco";
                 ViewData["MUN20"] = "San Martín Sacatepéquez";
@@ -273,7 +273,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "San Andrés Sajcabajá";
                 ViewData["MUN15"] = "San Antonio Ilotenango";
                 ViewData["MUN16"] = "San Bartolomé Jocotenango";
-                ViewData["MUN17 "] = "San Juan Cotzal";
+                ViewData["MUN17"] = "San Juan Cotzal";
                 ViewData["MUN18"] = "San Pedro Jocopilas";
                 ViewData["MUN19"] = "Santa Cruz del Quiche";
                 ViewData["MUN20"] = "Uspantán";
@@ -328,7 +328,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "Pajapita";
                 ViewData["MUN15"] = "Río Blanco";
                 ViewData["MUN16"] = "San Antonio Sacatepéquez";
-                ViewData["MUN17 "] = "San Cristóbal Cucho";
+                ViewData["MUN17"] = "San Cristóbal Cucho";
                 ViewData["MUN18"] = "San José El Rodeo";
                 ViewData["MUN19"] = "San José Ojetenam";
                 ViewData["MUN20"] = "San Lorenzo";
@@ -378,7 +378,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "Santa Clara La Laguna";
                 ViewData["MUN15"] = "Santa Cruz La Laguna";
                 ViewData["MUN16"] = "Santa Lucía Utatlán";
-                ViewData["MUN17 "] = "Santa María Visitación";
+                ViewData["MUN17"] = "Santa María Visitación";
                 ViewData["MUN18"] = "Santiago Atitlán";
                 ViewData["MUN19 "] = "Solola";
             }
@@ -400,7 +400,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN14"] = "San Juan Bautista";
                 ViewData["MUN15"] = "San Lorenzo";
                 ViewData["MUN16"] = "San Miguel Panán";
-                ViewData["MUN17 "] = "San Pablo Jocopilas";
+                ViewData["MUN17"] = "San Pablo Jocopilas";
                 ViewData["MUN18"] = "Santa Bárbara";
                 ViewData["MUN19"] = "Santo Domingo Suchitepéquez";
                 ViewData["MUN20"] = "Santo Tomás La Unión";
