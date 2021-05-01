@@ -23,14 +23,14 @@
                 <span asp-validation-for="ApellidoPaciente" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DPI" class="control-label"></label>
-                <input asp-for="DPI" class="form-control" value="0" />
-                <span asp-validation-for="DPI" class="text-danger"></span>
+                <label asp-for="DPIPartidadenacimiento" class="control-label"></label>
+                <input asp-for="DPIPartidadenacimiento" class="form-control" value="0" />
+                <span asp-validation-for="DPIPartidadenacimiento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PartidaDeNacimiento" class="control-label"></label>
-                <input asp-for="PartidaDeNacimiento" type="date" class="form-control" required/>
-                <span asp-validation-for="PartidaDeNacimiento" class="text-danger"></span>
+                <label asp-for="FechadeNacimiento" class="control-label"></label>
+                <input asp-for="FechadeNacimiento" type="date" class="form-control" required/>
+                <span asp-validation-for="FechadeNacimiento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Departamento, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -60,11 +60,6 @@
                     <option>Totonicapán</option>
                     <option>Zacapa</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Municipio" class="control-label"></label>
-                <input asp-for="Municipio" class="form-control" required/>
-                <span asp-validation-for="Municipio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Crear Usuario" class="btn btn-primary" />

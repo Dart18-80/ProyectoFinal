@@ -35,10 +35,9 @@ namespace Proyecto.Controllers
             var NuevoPaciente = new Models.DatosPaciente { 
             NombrePaciente=Regex.Replace(collection["NombrePaciente"], @"\s", "").ToUpper(),
             ApellidoPaciente= Regex.Replace(collection["ApellidoPaciente"], @"\s", "").ToUpper(),
-            DPI = Regex.Replace(collection["DPI"], @"\s", ""),
-            PartidaDeNacimiento= collection["PartidaDeNacimiento"],
+            DPIPartidadenacimiento = Regex.Replace(collection["DPIPartidadenacimiento"], @"\s", ""),
+            FechadeNacimiento= collection["FechadeNacimiento"],
             Departamento= Regex.Replace(collection["Departamento"], @"\s", "").ToUpper(),
-            Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper()
             };
             Singleton.Instance.ListaParaView.Add(NuevoPaciente);
             return RedirectToAction("CrearCita");
@@ -47,8 +46,24 @@ namespace Proyecto.Controllers
         {
             if (Singleton.Instance.ListaParaView[0].Departamento=="ALTAVERAPAZ")
             {
-                ViewData["HOSPITAL1"] = "Hospital central de Alta Verapaz";
-                ViewData["HOSPITAL2"] = "Hospital Rural de Alta Verapaz";
+                ViewData["MUN1"] = "Chahal";
+                ViewData["MUN2"] = "Chisec";
+                ViewData["MUN3"] = "Cobán";
+                ViewData["MUN4"] = "Fray Bartolomé de las Casas";
+                ViewData["MUN5"] = "La Tinta";
+                ViewData["MUN6"] = "Chahal";
+                ViewData["MUN7"] = "Chahal";
+                ViewData["MUN8"] = "Chahal";
+                ViewData["MUN9"] = "Chahal";
+                ViewData["MUN10"] = "Chahal";
+                ViewData["MUN11"] = "Chahal";
+                ViewData["MUN12"] = "Chahal";
+                ViewData["MUN13"] = "Chahal";
+                ViewData["MUN14"] = "Chahal";
+                ViewData["MUN15"] = "Chahal";
+                ViewData["MUN16"] = "Chahal";
+                ViewData["MUN17 "] = "Chahal";
+
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "BAJAVERAPAZ")
             {

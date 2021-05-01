@@ -53,14 +53,44 @@
                     <option>Otra o ninguna de estas enfermedades....</option>
                 </select>
             </div>
-            @ViewData["ErrorUusario"]
             <div class="form-group">
-                @Html.LabelFor(model => model.Hospital, htmlAttributes: new { @class = "control-label col-md-2" })
-                <select required @Html.EditorFor(model => model.Hospital, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Hospital, "", new { @class = "text-danger" })>
+                @Html.LabelFor(model => model.Municipio, htmlAttributes: new { @class = "control-label col-md-2" })
+                <select required @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })>
                     <option value="">Elige una opción</option>
-                    <option value="1">@ViewData["HOSPITAL1"]</option>
-                    <option value="2">@ViewData["HOSPITAL2"]</option>
+                    <option value="1">@ViewData["MUN1"]</option>
+                    <option value="2">@ViewData["MUN2"]</option>
+                    <option value="2">@ViewData["MUN3"]</option>
+                    <option value="2">@ViewData["MUN4"]</option>
+                    <option value="2">@ViewData["MUN5"]</option>
+                    <option value="1">@ViewData["MUN6"]</option>
+                    <option value="2">@ViewData["MUN7"]</option>
+                    <option value="2">@ViewData["MUN8"]</option>
+                    <option value="2">@ViewData["MUN9"]</option>
+                    <option value="2">@ViewData["MUN10"]</option>
+                    <option value="1">@ViewData["MUN11"]</option>
+                    <option value="2">@ViewData["MUN12"]</option>
+                    <option value="2">@ViewData["MUN13"]</option>
+                    <option value="2">@ViewData["MUN14"]</option>
+                    <option value="2">@ViewData["MUN15"]</option>
+                    <option value="1">@ViewData["MUN16"]</option>
+                    <option value="2">@ViewData["MUN17"]</option>
+                    <option value="2">@ViewData["MUN18"]</option>
+                    <option value="2">@ViewData["MUN19"]</option>
+                    <option value="2">@ViewData["MUN20"]</option>
+                    <option value="1">@ViewData["MUN21"]</option>
+                    <option value="2">@ViewData["MUN22"]</option>
+                    <option value="2">@ViewData["MUN23"]</option>
+                    <option value="2">@ViewData["MUN24"]</option>
+                    <option value="2">@ViewData["MUN25"]</option>
+                    <option value="1">@ViewData["MUN26"]</option>
+                    <option value="2">@ViewData["MUN27"]</option>
+                    <option value="2">@ViewData["MUN28"]</option>
+                    <option value="2">@ViewData["MUN29"]</option>
+                    <option value="2">@ViewData["MUN30"]</option>
+                    <option value="1">@ViewData["MUN31"]</option>
+                    <option value="2">@ViewData["MUN32"]</option>
+
                 </select>
             </div>
             <div class="form-group">

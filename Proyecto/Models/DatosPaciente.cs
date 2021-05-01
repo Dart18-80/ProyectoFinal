@@ -9,8 +9,8 @@ namespace Proyecto.Models
     {
         public string NombrePaciente { get; set; }
         public string ApellidoPaciente { get; set; }
-        public string DPI { get; set; }
-        public string PartidaDeNacimiento { get; set; }
+        public string DPIPartidadenacimiento{ get; set; }
+        public string FechadeNacimiento { get; set; }
         public string Departamento { get; set; }
         public string Municipio { get; set; }
         public string Trabajo { get; set; }
