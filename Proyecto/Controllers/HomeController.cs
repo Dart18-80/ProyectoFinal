@@ -51,19 +51,18 @@ namespace Proyecto.Controllers
                 ViewData["MUN3"] = "Cobán";
                 ViewData["MUN4"] = "Fray Bartolomé de las Casas";
                 ViewData["MUN5"] = "La Tinta";
-                ViewData["MUN6"] = "Chahal";
-                ViewData["MUN7"] = "Chahal";
-                ViewData["MUN8"] = "Chahal";
-                ViewData["MUN9"] = "Chahal";
-                ViewData["MUN10"] = "Chahal";
-                ViewData["MUN11"] = "Chahal";
-                ViewData["MUN12"] = "Chahal";
-                ViewData["MUN13"] = "Chahal";
-                ViewData["MUN14"] = "Chahal";
-                ViewData["MUN15"] = "Chahal";
-                ViewData["MUN16"] = "Chahal";
-                ViewData["MUN17 "] = "Chahal";
-
+                ViewData["MUN6"] = "Lanquín";
+                ViewData["MUN7"] = "Panzós";
+                ViewData["MUN8"] = "Raxruhá";
+                ViewData["MUN9"] = "San Cristóbal Verapaz";
+                ViewData["MUN10"] = "San Juan Chamelco";
+                ViewData["MUN11"] = "San Pedro Carchá";
+                ViewData["MUN12"] = "Santa Cruz Verapaz";
+                ViewData["MUN13"] = "Santa María Cahabón";
+                ViewData["MUN14"] = "Senahú";
+                ViewData["MUN15"] = "Tamahú";
+                ViewData["MUN16"] = "Tactic";
+                ViewData["MUN17 "] = "Tucurú";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "BAJAVERAPAZ")
             {
@@ -119,12 +118,60 @@ namespace Proyecto.Controllers
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Guatemala".ToUpper())
             {
-                ViewData["HOSPITAL1"] = "Hospital central de Alta Verapaz";
-                ViewData["HOSPITAL2"] = "Hospital Rural de Alta Verapaz";
+                ViewData["MUN1"] = "Amatitlán";
+                ViewData["MUN2"] = "Chinautla";
+                ViewData["MUN3"] = "Chuarrancho";
+                ViewData["MUN4"] = "Ciudad de Guatemala";
+                ViewData["MUN5"] = "Fraijanes";
+                ViewData["MUN6"] = "Mixco";
+                ViewData["MUN7"] = "Palencia";
+                ViewData["MUN8"] = "San José del Golfo";
+                ViewData["MUN9"] = "San José Pinula";
+                ViewData["MUN10"] = "San Juan Sacatepéquez";
+                ViewData["MUN11"] = "San Miguel Petapa";
+                ViewData["MUN12"] = "San Pedro Ayampuc";
+                ViewData["MUN13"] = "San Pedro Sacatepéquez";
+                ViewData["MUN14"] = "San Raymundo";
+                ViewData["MUN15"] = "Santa Catarina Pinula";
+                ViewData["MUN16"] = "Villa Canales";
+                ViewData["MUN17 "] = "Villa Nueva";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Huehuetenango".ToUpper())
             {
-                
+
+                ViewData["MUN1"] = "Aguacatán";
+                ViewData["MUN2"] = "Chiantla";
+                ViewData["MUN3"] = "Colotenango";
+                ViewData["MUN4"] = "Concepción Huista";
+                ViewData["MUN5"] = "Cuilco";
+                ViewData["MUN6"] = "Huehuetenango";
+                ViewData["MUN7"] = "Jacaltenango";
+                ViewData["MUN8"] = "La Democracia";
+                ViewData["MUN9"] = "La Libertad";
+                ViewData["MUN10"] = "Malacatancito";
+                ViewData["MUN11"] = "Nentón";
+                ViewData["MUN12"] = "Petatán";
+                ViewData["MUN13"] = "San Antonio Huista";
+                ViewData["MUN14"] = "San Gaspar Ixchil";
+                ViewData["MUN15"] = "San Ildefonso Ixtahuacán";
+                ViewData["MUN16"] = "San Juan Atitán";
+                ViewData["MUN17 "] = "San Juan Ixcoy";
+                ViewData["MUN18"] = "San Mateo Ixtatán";
+                ViewData["MUN19"] = "San Miguel Acatán";
+                ViewData["MUN20"] = "San Pedro Nécta";
+                ViewData["MUN21"] = "San Pedro Soloma";
+                ViewData["MUN22"] = "San Rafael La Independencia";
+                ViewData["MUN23"] = "San Rafael Pétzal";
+                ViewData["MUN24"] = "San Sebastián Coatán";
+                ViewData["MUN25"] = "San Sebastián Huehuetenango";
+                ViewData["MUN26"] = "Santa Ana Huista";
+                ViewData["MUN27"] = "Santa Bárbara";
+                ViewData["MUN28"] = "Santa Cruz Barillas";
+                ViewData["MUN29"] = "Santa Eulalia";
+                ViewData["MUN30"] = "Santiago Chimaltenango";
+                ViewData["MUN31"] = "Tectitán";
+                ViewData["MUN32"] = "Todos Santos Cuchumatán";
+                ViewData["MUN33"] = "Unión Cantinil";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "IZABAL")
             {
@@ -265,8 +312,36 @@ namespace Proyecto.Controllers
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "SANMARCOS")
             {
-                ViewData["HOSPITAL1"] = "Hospital central de Alta Verapaz";
-                ViewData["HOSPITAL2"] = "Hospital Rural de Alta Verapaz";
+                ViewData["MUN1"] = "Ayutla";
+                ViewData["MUN2"] = "Catarina";
+                ViewData["MUN3"] = "Comitancillo";
+                ViewData["MUN4"] = "Concepción Tutuapa";
+                ViewData["MUN5"] = "El Quetzal";
+                ViewData["MUN6"] = "El Tumbador";
+                ViewData["MUN7"] = "Esquipulas Palo Gordo";
+                ViewData["MUN8"] = "Ixchiguán";
+                ViewData["MUN9"] = "La Blanca";
+                ViewData["MUN10"] = "La Reforma";
+                ViewData["MUN11"] = "Malacatán";
+                ViewData["MUN12"] = "Nuevo Progreso";
+                ViewData["MUN13"] = "Ocós";
+                ViewData["MUN14"] = "Pajapita";
+                ViewData["MUN15"] = "Río Blanco";
+                ViewData["MUN16"] = "San Antonio Sacatepéquez";
+                ViewData["MUN17 "] = "San Cristóbal Cucho";
+                ViewData["MUN18"] = "San José El Rodeo";
+                ViewData["MUN19"] = "San José Ojetenam";
+                ViewData["MUN20"] = "San Lorenzo";
+                ViewData["MUN21"] = "San Marcos";
+                ViewData["MUN22"] = "San Miguel Ixtahuacán";
+                ViewData["MUN23"] = "San Pablo";
+                ViewData["MUN24"] = "San Pedro Sacatepéquez";
+                ViewData["MUN25"] = "San Rafael Pie de la Cuesta";
+                ViewData["MUN26"] = "Sibinal";
+                ViewData["MUN27"] = "Sipacapa";
+                ViewData["MUN28"] = "Tacaná";
+                ViewData["MUN29"] = "Tajumulco";
+                ViewData["MUN30"] = "Tejutla";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "SANTAROSA")
             {
@@ -309,18 +384,52 @@ namespace Proyecto.Controllers
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Suchitepéquez".ToUpper())
             {
-                ViewData["HOSPITAL1"] = "Hospital central de Alta Verapaz";
-                ViewData["HOSPITAL2"] = "Hospital Rural de Alta Verapaz";
+                ViewData["MUN1"] = "Chicacao";
+                ViewData["MUN2"] = "Cuyotenango";
+                ViewData["MUN3"] = "Mazatenango";
+                ViewData["MUN4"] = "Patulul";
+                ViewData["MUN5"] = "Pueblo Nuevo";
+                ViewData["MUN6"] = "Río Bravo";
+                ViewData["MUN7"] = "Samayac";
+                ViewData["MUN8"] = "San Antonio Suchitepéquez";
+                ViewData["MUN9"] = "San Bernardino";
+                ViewData["MUN10"] = "San Francisco Zapotitlán";
+                ViewData["MUN11"] = "San Gabriel";
+                ViewData["MUN12"] = "San José El Ídolo";
+                ViewData["MUN13"] = "San José La Máquina";
+                ViewData["MUN14"] = "San Juan Bautista";
+                ViewData["MUN15"] = "San Lorenzo";
+                ViewData["MUN16"] = "San Miguel Panán";
+                ViewData["MUN17 "] = "San Pablo Jocopilas";
+                ViewData["MUN18"] = "Santa Bárbara";
+                ViewData["MUN19"] = "Santo Domingo Suchitepéquez";
+                ViewData["MUN20"] = "Santo Tomás La Unión";
+                ViewData["MUN21"] = "Zunilito";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Totonicapán".ToUpper())
             {
-                ViewData["HOSPITAL1"] = "Hospital central de Alta Verapaz";
-                ViewData["HOSPITAL2"] = "Hospital Rural de Alta Verapaz";
+                ViewData["MUN1"] = "Momostenango";
+                ViewData["MUN2"] = "San Andrés Xecul";
+                ViewData["MUN3"] = "San Bartolo";
+                ViewData["MUN4"] = "San Cristóbal Totonicapán";
+                ViewData["MUN5"] = "San Francisco El Alto";
+                ViewData["MUN6"] = "Santa Lucía La Reforma";
+                ViewData["MUN7"] = "Santa María Chiquimula";
+                ViewData["MUN8"] = "Totonicapán";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "ZACAPA".ToUpper())
             {
-                ViewData["HOSPITAL1"] = "Hospital central de Alta Verapaz";
-                ViewData["HOSPITAL2"] = "Hospital Rural de Alta Verapaz";
+                ViewData["MUN1"] = "Cabañas";
+                ViewData["MUN2"] = "Estanzuela";
+                ViewData["MUN3"] = "Gualán";
+                ViewData["MUN4"] = "Huité";
+                ViewData["MUN5"] = "La Unión";
+                ViewData["MUN6"] = "Río Hondo";
+                ViewData["MUN7"] = "San Diego";
+                ViewData["MUN8"] = "San Jorge";
+                ViewData["MUN9"] = "Teculután";
+                ViewData["MUN10"] = "Usumatlán";
+                ViewData["MUN11"] = "Zacapa";
             }
             return View();
         }
