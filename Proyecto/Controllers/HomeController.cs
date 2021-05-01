@@ -431,12 +431,33 @@ namespace Proyecto.Controllers
                 ViewData["MUN10"] = "Usumatlán";
                 ViewData["MUN11"] = "Zacapa";
             }
+            int PrioridadEdad = 0, PrioridadEnfermedad = 0 , PrioridadTrabajo = 0;
+            if (Singleton.Instance.ListaParaView[0].Edad >= 0)
+            {
+                PrioridadEdad = 7;
+            }
+            else if (Singleton.Instance.ListaParaView[0].Edad >= 50 && Singleton.Instance.ListaParaView[0].Edad <= 69)
+            {
+                PrioridadEdad = 8;
+            }
+            else if (Singleton.Instance.ListaParaView[0].Edad >= 40 && Singleton.Instance.ListaParaView[0].Edad <= 49)
+            {
+                PrioridadEdad = 13;
+            }
+            else 
+            {
+                PrioridadEdad = 14;
+            }
+
+
+            
+
             return View();
         }
         [HttpPost]
         public IActionResult CrearCita(IFormCollection collection)
         {
-
+            FuncionesDeApoyo CallFunc = new FuncionesDeApoyo();
             var NuevaCrearCita = new Models.DatosPaciente {
                 NombrePaciente = Singleton.Instance.ListaParaView[0].NombrePaciente,
                 ApellidoPaciente = Singleton.Instance.ListaParaView[0].ApellidoPaciente,
@@ -447,6 +468,30 @@ namespace Proyecto.Controllers
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
                 Prioridad = 0
             };
+            int PrioridadEdad = 0, PrioridadEnfermedad = 16, PrioridadTrabajo = 0;
+            if (collection["Enfermedades"] == 1) 
+            {
+                PrioridadEnfermedad = 7;
+            }
+
+            if (Singleton.Instance.ListaParaView[0].Edad >= 0)
+            {
+                PrioridadEdad = 7;
+            }
+            else if (Singleton.Instance.ListaParaView[0].Edad >= 50 && Singleton.Instance.ListaParaView[0].Edad <= 69)
+            {
+                PrioridadEdad = 8;
+            }
+            else if (Singleton.Instance.ListaParaView[0].Edad >= 40 && Singleton.Instance.ListaParaView[0].Edad <= 49)
+            {
+                PrioridadEdad = 13;
+            }
+            else
+            {
+                PrioridadEdad = 14;
+            }
+            PrioridadTrabajo = Convert.ToInt32(collection["Trabajo"]);
+            int PrioridadTotal = CallFunc.Menor(PrioridadEdad,PrioridadEnfermedad,PrioridadTrabajo);
             Singleton.Instance.ListaParaView.Clear();
             return View();
         }
