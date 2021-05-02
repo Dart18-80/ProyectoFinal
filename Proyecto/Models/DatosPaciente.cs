@@ -17,6 +17,10 @@ namespace Proyecto.Models
         public string Enfermedades { get; set; }
         public string Hospital{ get; set; }
         public int Prioridad { get; set; }
+        public int CompareToNombreHash(DatosPaciente Nombre1, string Nombre2)
+        {
+            return Nombre1.NombrePaciente.CompareTo(Nombre2);
+        }
         public int CompareTo(object obj)
         {
             if (Convert.ToInt16(this.CompareTo(obj)) > 0)

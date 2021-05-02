@@ -18,6 +18,9 @@ namespace Proyecto.Controllers
         private readonly ILogger<HomeController> _logger;
         public TablaHash<DatosPaciente> TablaHashPacientes = new TablaHash<DatosPaciente>(50);
 
+        delegate int Delagados(DatosPaciente Nombre1, string Nombre2);//delegados de comparacion para la tabla hash
+        DatosPaciente CallDatosPersona = new DatosPaciente();
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -474,6 +477,10 @@ namespace Proyecto.Controllers
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
                 Prioridad = PrioridadTotal
             };
+            Delagados NombreTotal = new Delagados(CallDatosPersona.CompareToNombreHash);
+            int posicion = TablaHashPacientes.FuncionHash("dsadas");
+            TablaHashPacientes.ArrayHash[posicion].insertarNodo(NuevaCrearCita);
+
             Singleton.Instance.ListaParaView.Clear();
             return View();
         }
