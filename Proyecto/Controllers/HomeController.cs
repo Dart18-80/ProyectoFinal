@@ -25,6 +25,18 @@ namespace Proyecto.Controllers
         
         public IActionResult Index()//Menu del Programa
         {
+            if (Singleton.Instance.VerificacionHospitales) 
+            {
+
+                //Creacion de todos los hospitales 
+                ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
+                ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
+                Singleton.Instance.HospitalesColas.Encolar(Singleton.Instance.HospitalesColas.CrearEstructura(NuevaCrearCita.Municipio, NuevoHospital));
+                Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(NuevaCrearCita.Municipio, NuevaBusquedadHospital));
+
+                //Negacion para que ya no lo vuelva a hacer
+                Singleton.Instance.VerificacionHospitales = false;
+            }
             return View();
         }
         public IActionResult CrearPaciente()//Creacion e ingreso de datos del usuario
@@ -495,11 +507,6 @@ namespace Proyecto.Controllers
             Singleton.Instance.ListaParaView.Clear();
 
             //Cola para la creacion del municipio
-            ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
-            ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
-            Singleton.Instance.HospitalesColas.Encolar(Singleton.Instance.HospitalesColas.CrearEstructura(NuevaCrearCita.Municipio, NuevoHospital));
-            Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(NuevaCrearCita.Municipio,NuevaBusquedadHospital));
-
 
             return View();
         }
