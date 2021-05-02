@@ -16,7 +16,6 @@ namespace Proyecto.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public TablaHash<DatosPaciente> TablaHashPacientes = new TablaHash<DatosPaciente>(50);
 
         delegate int Delagados(DatosPaciente Nombre1, string Nombre2);//delegados de comparacion para la tabla hash
         DatosPaciente CallDatosPersona = new DatosPaciente();
@@ -478,10 +477,10 @@ namespace Proyecto.Controllers
                 Prioridad = PrioridadTotal
             };
             Delagados NombreTotal = new Delagados(CallDatosPersona.CompareToNombreHash);
-            int posicion = TablaHashPacientes.FuncionHash("dsadas");
+            int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash(NuevaCrearCita.NombrePaciente, NuevaCrearCita.ApellidoPaciente, NuevaCrearCita.DPIPartidadenacimiento);
             NodoHash<DatosPaciente> datospaciente = new NodoHash<DatosPaciente>();
-            datospaciente= TablaHashPacientes.CrearNodo(NuevaCrearCita);
-            TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
+            datospaciente= Singleton.Instance.TablaHashPacientes.CrearNodo(NuevaCrearCita);
+            Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
 
             Singleton.Instance.ListaParaView.Clear();
             return View();

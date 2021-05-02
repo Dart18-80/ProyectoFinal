@@ -30,17 +30,21 @@ namespace LibreriaDeClasesPED1
             ArrayHash[posicion].insertarNodo(valor);
         }
 
-        public int FuncionHash(string Titulo)
+        public int FuncionHash(string Nombre, string Apellido, string dpi)
         {
-            int indice = (Titulo.Length * 10) * FuncionCadena(Titulo) % 25;
+            Char[] cadenaDpi = dpi.ToArray();
+            int Sumadpi = 0;
+            for (int i = 0; i < cadenaDpi.Length; i++)
+            {
+                Sumadpi += cadenaDpi[i];
+            }
+            int indice = (FuncionCadena(Nombre) + FuncionCadena(Apellido) + Sumadpi)%100;
             return indice;
         }
-        public int FuncionCadena(string Titulo)
+        public int FuncionCadena(string nom)
         {
-            string a = Titulo.ToUpper();
-            string TituloJunto = Regex.Replace(Titulo, @"\s", "");
-            Char[] cadena = a.ToArray();
-            int cont = TituloJunto.Length;
+            Char[] cadena = nom.ToArray();
+            int cont = nom.Length;
             int Func = 0;
             for (int i = 0; i < cont; i++)
             {
@@ -143,10 +147,10 @@ namespace LibreriaDeClasesPED1
             return Nuevo;
         }
 
-        public NodoHash<T> Buscar(string Titulo, Delegate Condicion)
+        public NodoHash<T> Buscar(string Nombre, string apellido, string dpi, Delegate Condicion)
         {
-            int posicion = FuncionHash(Titulo);
-            return ArrayHash[posicion].Recorrerlista(Titulo, Condicion);
+            int posicion = FuncionHash(Nombre, apellido, dpi);
+            return ArrayHash[posicion].Recorrerlista(Nombre, Condicion);
         }
     }
 }
