@@ -18,11 +18,10 @@ namespace Proyecto.Models
         public string Enfermedades { get; set; }
         public string Hospital{ get; set; }
         public int Prioridad { get; set; }
-        public IFormFile FileC { get; set; }
 
-        public int BuscarPorNombre(DatosPaciente Nombre1, string Nombre2)
+        public int BuscarPorNombre(string Nombre1, DatosPaciente Nombre2)
         {
-            return Nombre1.NombrePaciente.CompareTo(Nombre2);
+            return Nombre1.CompareTo(Nombre2.NombrePaciente);
         }
         public int CompareToNomrbre(DatosPaciente Nombre1, DatosPaciente Nombre2)
         {
