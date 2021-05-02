@@ -35,7 +35,6 @@ namespace LibreriaDeClasesPED1
             int indice = (Titulo.Length * 10) * FuncionCadena(Titulo) % 25;
             return indice;
         }
-
         public int FuncionCadena(string Titulo)
         {
             string a = Titulo.ToUpper();
@@ -135,6 +134,13 @@ namespace LibreriaDeClasesPED1
             }
 
             return Func;
+        }
+
+        public NodoHash<T> CrearNodo(T Data)
+        {
+            NodoHash<T> Nuevo = new NodoHash<T>();
+            Nuevo.Data = Data;
+            return Nuevo;
         }
 
         public NodoHash<T> Buscar(string Titulo, Delegate Condicion)

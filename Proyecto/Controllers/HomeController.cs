@@ -479,7 +479,9 @@ namespace Proyecto.Controllers
             };
             Delagados NombreTotal = new Delagados(CallDatosPersona.CompareToNombreHash);
             int posicion = TablaHashPacientes.FuncionHash("dsadas");
-            TablaHashPacientes.ArrayHash[posicion].insertarNodo(NuevaCrearCita);
+            NodoHash<DatosPaciente> datospaciente = new NodoHash<DatosPaciente>();
+            datospaciente= TablaHashPacientes.CrearNodo(NuevaCrearCita);
+            TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
 
             Singleton.Instance.ListaParaView.Clear();
             return View();
