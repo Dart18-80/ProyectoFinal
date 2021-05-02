@@ -437,6 +437,7 @@ namespace Proyecto.Controllers
         }
 
          delegate int DelegadosN(DatosPaciente Nombre1, DatosPaciente Nombre2);//delegados de comparacion para la tabla hash
+        delegate int DelegadosBuscarN(string Nombre2, DatosPaciente Nombre1);
         DatosPaciente CallDatosPersona = new DatosPaciente();
         [HttpPost]
         public IActionResult CrearCita(IFormCollection collection)
@@ -485,9 +486,15 @@ namespace Proyecto.Controllers
             //Insertar datos en los arboles AVL
             DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNombre);
             Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
-
             Singleton.Instance.ListaParaView.Clear();
             return View();
+        }
+        public IActionResult proar() 
+        {
+            DelegadosBuscarN buscarNomb = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
+            DatosPaciente das= Singleton.Instance.AccesoArbol.Buscar("RAFAEL", buscarNomb);
+            int a = 0;
+            return RedirectToAction("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
