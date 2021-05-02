@@ -136,116 +136,59 @@ namespace LibreriaDeClasesPED1
                 return 0;
             }
         }
-        public int Buscar(string nBuscar, NodoPrioridad<T> N, Delegate Comparacion)
+        public T Buscar(string nBuscar, NodoPrioridad<T> N, Delegate Comparacion)
         {
-            int NResult = -1;
+            T Nuevo;
             int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
-            if (Verificacion == 0)
+            if (Verificacion != 0)
             {
                 int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
                 if (compar < 0)
                 {
                     if (N.Izquierda != null)
                     {
-                        NResult = Buscar(nBuscar, N.Izquierda, Comparacion);
+                        return Buscar(nBuscar, N.Izquierda, Comparacion);
                     }
                 }
                 else
                 {
                     if (N.Derecha != null)
                     {
-                        NResult = Buscar(nBuscar, N.Derecha, Comparacion);
+                        return Buscar(nBuscar, N.Derecha, Comparacion);
                     }
                 }
+                return default;
             }
             else
             {
-                NResult = N.Index;
+                Nuevo = N.Data;
+                return Nuevo;
             }
-            return NResult;
         }
-        public int Buscar(string nBuscar, Delegate Comparacion)
+        public T Buscar(string nBuscar, Delegate Comparacion)
         {
-            int NResult = -1;
+            T Nuevo;
             int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
-            if (Verificacion == 0)
+            if (Verificacion != 0)
             {
                 int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
                 if (compar < 0)
                     if (Raiz.Izquierda != null)
                     {
-                        NResult = Buscar(nBuscar, Raiz.Izquierda, Comparacion);
+                        return Buscar(nBuscar, Raiz.Izquierda, Comparacion);
                     }
                     else
                         if (Raiz.Derecha != null)
                     {
-                        NResult = Buscar(nBuscar, Raiz.Derecha, Comparacion);
+                        return Buscar(nBuscar, Raiz.Derecha, Comparacion);
                     }
+                return default;
             }
             else
             {
-                NResult = Raiz.Index;
+                Nuevo = Raiz.Data;
+                return Nuevo;
             }
-            return NResult;
-        }
-
-        public T BuscarE(string nBuscar, NodoPrioridad<T> Ant, NodoPrioridad<T> Estar, Delegate Comparacion)
-        {
-            NodoPrioridad<T> NResult = null;
-            int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(NResult, Estar.Data));
-            if (Verificacion == 0)
-            {
-                int compar = Convert.ToInt16(Comparacion.DynamicInvoke(NResult, Estar.Data));
-                if (compar < 0)
-                {
-                    if (Estar.Izquierda != null)
-                    {
-                        NResult.Data = BuscarE(nBuscar, Estar, Estar.Izquierda, Comparacion);
-                    }
-                }
-                else
-                {
-                    if (Estar.Derecha != null)
-                    {
-                        NResult.Data = BuscarE(nBuscar, Estar, Estar.Derecha, Comparacion);
-                    }
-                }
-            }
-            else
-            {
-                NResult = Estar;
-            }
-
-            return NResult.Data;
-        }
-
-        public T BuscarE(string nBuscar, NodoPrioridad<T> N, Delegate Comparacion)
-        {
-            NodoPrioridad<T> NResult = null;
-            int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
-            if (Verificacion == 0)
-            {
-                int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
-                if (compar < 0)
-                {
-                    if (N.Izquierda != null)
-                    {
-                        NResult.Data = BuscarE(nBuscar, N.Izquierda, Comparacion);
-                    }
-                }
-                else
-                {
-                    if (N.Derecha != null)
-                    {
-                        NResult.Data = BuscarE(nBuscar, N.Derecha, Comparacion);
-                    }
-                }
-            }
-            else
-            {
-                NResult = N;
-            }
-            return NResult.Data;
         }
 
         public void Eliminar(T nEliminar, NodoPrioridad<T> n, Delegate Comparacion)

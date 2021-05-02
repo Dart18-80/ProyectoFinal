@@ -19,5 +19,6 @@ namespace Proyecto.Helpers
             }
         }
         public List<DatosPaciente> ListaParaView = new List<DatosPaciente>();
+
     }
 }
