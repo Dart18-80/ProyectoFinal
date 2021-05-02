@@ -24,7 +24,7 @@ namespace Proyecto.Models
         {
             return Nombre1.NombrePaciente.CompareTo(Nombre2);
         }
-        public int CompareToNomrbre(DatosPaciente Nombre1, DatosPaciente Nombre2)
+        public int CompareToNombre(DatosPaciente Nombre1, DatosPaciente Nombre2)
         {
             return Nombre1.NombrePaciente.CompareTo(Nombre2.NombrePaciente);
         }

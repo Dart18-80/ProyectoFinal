@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Proyecto.Models
 {
     public class ColaEstructura<T> where T : IComparable
     {
         NodeEstructuras<T> Primero;
-        public NodeEstructuras<T> CrearEstructura(string Nombre, T Data)
+        public NodeEstructuras<T> CrearEstructura(string Nombre, T Data, T ArbolAVL)
         {
             NodeEstructuras<T> Nuevo = new NodeEstructuras<T>();
-            Nuevo.Estructura = Data;
+            Nuevo.EstructuraPrioridadPrincipal = Data;
+            Nuevo.ArbolAVLHospital = ArbolAVL;
             Nuevo.NombreHospital = Nombre;
             return Nuevo;
         }
@@ -39,7 +41,7 @@ namespace Proyecto.Models
             }
         }
 
-        public T RetornarEstructura(string NombreU)
+        public T RetornarEstructuraPrioridad(string NombreU)
         {
             if (Primero == null)
             {
@@ -47,11 +49,11 @@ namespace Proyecto.Models
             }
             else
             {
-                return RetornarEstructura(NombreU, Primero);
+                return RetornarEstructuraPrioridad(NombreU, Primero);
             }
         }
 
-        T RetornarEstructura(string NombreU, NodeEstructuras<T> Raiz)
+        T RetornarEstructuraPrioridad(string NombreU, NodeEstructuras<T> Raiz)
         {
             if (Raiz == null)
             {
@@ -61,44 +63,45 @@ namespace Proyecto.Models
             {
                 if (Raiz.NombreHospital == NombreU)
                 {
-                    return Raiz.Estructura;
+                    return Raiz.EstructuraPrioridadPrincipal;
                 }
                 else
                 {
-                    return RetornarEstructura(NombreU, Raiz.Siguiente);
+                    return RetornarEstructuraPrioridad(NombreU, Raiz.Siguiente);
                 }
             }
         }
 
-        public T RetornarUsuarios(int i)
+        public T RetornarArbolAvl(string NombreU)
         {
-            if (i == 1)
+            if (Primero == null)
             {
-                return Primero.Estructura;
+                return default;
             }
             else
             {
-                return RetornarUsuarios(i, Primero);
+                return RetornarArbolAvl(NombreU, Primero);
             }
         }
 
-        T RetornarUsuarios(int i, NodeEstructuras<T> Raiz)
+        T RetornarArbolAvl(string NombreU, NodeEstructuras<T> Raiz)
         {
-            if (i == 1)
+            if (Raiz == null)
             {
-                return Raiz.Estructura;
+                return default;
             }
             else
             {
-                if (Raiz.Siguiente != null)
+                if (Raiz.NombreHospital == NombreU)
                 {
-                    return RetornarUsuarios(i - 1, Raiz.Siguiente);
+                    return Raiz.ArbolAVLHospital;
                 }
                 else
                 {
-                    return Raiz.Estructura;
+                    return RetornarArbolAvl(NombreU, Raiz.Siguiente);
                 }
             }
         }
+
     }
 }

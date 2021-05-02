@@ -150,19 +150,28 @@ namespace LibreriaDeClasesPED1
                 int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
                 if (compar < 0)
                 {
-                    if (N.Izquierda != null)
+                    if (Raiz.Izquierda != null)
                     {
-                        return Buscar(nBuscar, N.Izquierda, Comparacion);
+                        Nuevo = Buscar(nBuscar, Raiz.Izquierda, Comparacion);
+                        return Nuevo;
+                    }
+                    else
+                    {
+                        return default;
                     }
                 }
                 else
                 {
-                    if (N.Derecha != null)
+                    if (Raiz.Derecha != null)
                     {
-                        return Buscar(nBuscar, N.Derecha, Comparacion);
+                        Nuevo = Buscar(nBuscar, Raiz.Derecha, Comparacion);
+                        return Nuevo;
+                    }
+                    else
+                    {
+                        return default;
                     }
                 }
-                return default;
             }
             else
             {
@@ -178,16 +187,29 @@ namespace LibreriaDeClasesPED1
             {
                 int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
                 if (compar < 0)
+                {
                     if (Raiz.Izquierda != null)
                     {
-                        return Buscar(nBuscar, Raiz.Izquierda, Comparacion);
+                        Nuevo = Buscar(nBuscar, Raiz.Izquierda, Comparacion);
+                        return Nuevo;
                     }
-                    else
-                        if (Raiz.Derecha != null)
+                    else 
                     {
-                        return Buscar(nBuscar, Raiz.Derecha, Comparacion);
+                        return default;
                     }
-                return default;
+                }
+                else 
+                {
+                    if (Raiz.Derecha != null)
+                    {
+                        Nuevo = Buscar(nBuscar, Raiz.Derecha, Comparacion);
+                        return Nuevo;
+                    }
+                    else 
+                    {
+                        return default;
+                    }
+                }
             }
             else
             {

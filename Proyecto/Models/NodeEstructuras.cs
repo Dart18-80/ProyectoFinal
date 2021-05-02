@@ -7,7 +7,8 @@ namespace Proyecto.Models
 {
     public class NodeEstructuras<T> where T: IComparable
     {
-        public T Estructura { get; set; }
+        public T EstructuraPrioridadPrincipal { get; set; }
+        public T ArbolAVLHospital { get; set; }
         public NodeEstructuras<T> Siguiente { get; set; }
         public string NombreHospital { get; set; }
     }

@@ -483,7 +483,7 @@ namespace Proyecto.Controllers
             datospaciente= Singleton.Instance.TablaHashPacientes.CrearNodo(NuevaCrearCita);
             Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
             //Insertar datos en los arboles AVL
-            DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNomrbre);
+            DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNombre);
             Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
 
             Singleton.Instance.ListaParaView.Clear();
