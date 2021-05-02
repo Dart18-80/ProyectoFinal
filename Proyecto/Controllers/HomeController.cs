@@ -477,7 +477,7 @@ namespace Proyecto.Controllers
                 Prioridad = PrioridadTotal
             };
             Delagados NombreTotal = new Delagados(CallDatosPersona.CompareToNombreHash);
-            int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash("dsadas");
+            int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash(NuevaCrearCita.NombrePaciente, NuevaCrearCita.ApellidoPaciente, NuevaCrearCita.DPIPartidadenacimiento);
             NodoHash<DatosPaciente> datospaciente = new NodoHash<DatosPaciente>();
             datospaciente= Singleton.Instance.TablaHashPacientes.CrearNodo(NuevaCrearCita);
             Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
