@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Proyecto.Models
 {
-    public class ColaEstructura<T> where T : IComparable
+    public class ColaEstructura<T>
     {
         NodeEstructuras<T> Primero;
-        public NodeEstructuras<T> CrearEstructura(string Nombre, T Data, T ArbolAVL)
+        public NodeEstructuras<T> CrearEstructura(string Nombre, T Data)
         {
             NodeEstructuras<T> Nuevo = new NodeEstructuras<T>();
-            Nuevo.EstructuraPrioridadPrincipal = Data;
-            Nuevo.ArbolAVLHospital = ArbolAVL;
-            Nuevo.NombreHospital = Nombre;
+            Nuevo.Estructura = Data;
             return Nuevo;
         }
 
@@ -41,7 +39,7 @@ namespace Proyecto.Models
             }
         }
 
-        public T RetornarEstructuraPrioridad(string NombreU)
+        public T RetornarEstructura(string NombreU)
         {
             if (Primero == null)
             {
@@ -49,11 +47,11 @@ namespace Proyecto.Models
             }
             else
             {
-                return RetornarEstructuraPrioridad(NombreU, Primero);
+                return RetornarEstructura(NombreU, Primero);
             }
         }
 
-        T RetornarEstructuraPrioridad(string NombreU, NodeEstructuras<T> Raiz)
+        T RetornarEstructura(string NombreU, NodeEstructuras<T> Raiz)
         {
             if (Raiz == null)
             {
@@ -63,45 +61,13 @@ namespace Proyecto.Models
             {
                 if (Raiz.NombreHospital == NombreU)
                 {
-                    return Raiz.EstructuraPrioridadPrincipal;
+                    return Raiz.Estructura;
                 }
                 else
                 {
-                    return RetornarEstructuraPrioridad(NombreU, Raiz.Siguiente);
+                    return RetornarEstructura(NombreU, Raiz.Siguiente);
                 }
             }
         }
-
-        public T RetornarArbolAvl(string NombreU)
-        {
-            if (Primero == null)
-            {
-                return default;
-            }
-            else
-            {
-                return RetornarArbolAvl(NombreU, Primero);
-            }
-        }
-
-        T RetornarArbolAvl(string NombreU, NodeEstructuras<T> Raiz)
-        {
-            if (Raiz == null)
-            {
-                return default;
-            }
-            else
-            {
-                if (Raiz.NombreHospital == NombreU)
-                {
-                    return Raiz.ArbolAVLHospital;
-                }
-                else
-                {
-                    return RetornarArbolAvl(NombreU, Raiz.Siguiente);
-                }
-            }
-        }
-
     }
 }

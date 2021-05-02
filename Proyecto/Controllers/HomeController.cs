@@ -478,22 +478,35 @@ namespace Proyecto.Controllers
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
                 Prioridad = PrioridadTotal
             };
+
+
             //Ingreso de la posicion a la estructura de tabla hash
+
             int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash(NuevaCrearCita.NombrePaciente, NuevaCrearCita.ApellidoPaciente, NuevaCrearCita.DPIPartidadenacimiento);
             NodoHash<DatosPaciente> datospaciente = new NodoHash<DatosPaciente>();
             datospaciente= Singleton.Instance.TablaHashPacientes.CrearNodo(NuevaCrearCita);
             Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
+
+
             //Insertar datos en los arboles AVL
+
             DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNombre);
             Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
             Singleton.Instance.ListaParaView.Clear();
+
+            //Cola para la creacion del municipio
+            ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
+            ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
+            Singleton.Instance.HospitalesColas.Encolar(Singleton.Instance.HospitalesColas.CrearEstructura(NuevaCrearCita.Municipio, NuevoHospital));
+            Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(NuevaCrearCita.Municipio,NuevaBusquedadHospital));
+
+
             return View();
         }
         public IActionResult proar() 
         {
             DelegadosBuscarN buscarNomb = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
             DatosPaciente das= Singleton.Instance.AccesoArbol.Buscar("RAFAEL", buscarNomb);
-            int a = 0;
             return RedirectToAction("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

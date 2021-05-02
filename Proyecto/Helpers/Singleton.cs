@@ -21,6 +21,8 @@ namespace Proyecto.Helpers
         public TablaHash<DatosPaciente> TablaHashPacientes = new TablaHash<DatosPaciente>(100);
         public ArbolBinario<DatosPaciente> AccesoArbol = new ArbolBinario<DatosPaciente>();
         public List<DatosPaciente> ListaParaView = new List<DatosPaciente>();
+        public ColaEstructura<ColaPrioridad<DatosPaciente>> HospitalesColas = new ColaEstructura<ColaPrioridad<DatosPaciente>>();
+        public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitales = new ColaEstructura<ArbolBinario<DatosPaciente>>();
 
     }
 }
