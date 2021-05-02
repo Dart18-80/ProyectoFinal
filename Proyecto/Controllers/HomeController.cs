@@ -17,8 +17,6 @@ namespace Proyecto.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        delegate int Delagados(DatosPaciente Nombre1, string Nombre2);//delegados de comparacion para la tabla hash
-        DatosPaciente CallDatosPersona = new DatosPaciente();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -437,6 +435,9 @@ namespace Proyecto.Controllers
             }
             return View();
         }
+
+         delegate int DelegadosN(DatosPaciente Nombre1, DatosPaciente Nombre2);//delegados de comparacion para la tabla hash
+        DatosPaciente CallDatosPersona = new DatosPaciente();
         [HttpPost]
         public IActionResult CrearCita(IFormCollection collection)
         {
@@ -476,11 +477,14 @@ namespace Proyecto.Controllers
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
                 Prioridad = PrioridadTotal
             };
-            Delagados NombreTotal = new Delagados(CallDatosPersona.CompareToNombreHash);
+            //Ingreso de la posicion a la estructura de tabla hash
             int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash(NuevaCrearCita.NombrePaciente, NuevaCrearCita.ApellidoPaciente, NuevaCrearCita.DPIPartidadenacimiento);
             NodoHash<DatosPaciente> datospaciente = new NodoHash<DatosPaciente>();
             datospaciente= Singleton.Instance.TablaHashPacientes.CrearNodo(NuevaCrearCita);
             Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].insertarNodo(datospaciente);
+            //Insertar datos en los arboles AVL
+            DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNomrbre);
+            Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
 
             Singleton.Instance.ListaParaView.Clear();
             return View();

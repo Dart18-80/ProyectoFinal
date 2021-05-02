@@ -19,6 +19,7 @@ namespace Proyecto.Helpers
             }
         }
         public TablaHash<DatosPaciente> TablaHashPacientes = new TablaHash<DatosPaciente>(100);
+        public ArbolBinario<DatosPaciente> AccesoArbol = new ArbolBinario<DatosPaciente>();
         public List<DatosPaciente> ListaParaView = new List<DatosPaciente>();
 
     }
