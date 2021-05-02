@@ -6,6 +6,11 @@ namespace LibreriaDeClasesPED1
     {
         public NodoPrioridad<T> Raiz;
 
+        public NodoPrioridad<T> EnviarRaiz() 
+        {
+            return Raiz;
+        }
+
         public ArbolBinario()
         {
             Raiz = null;
