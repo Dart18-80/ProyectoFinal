@@ -26,6 +26,8 @@ namespace Proyecto.Helpers
 
         //Creacion de Arbol para busquedas generales 
         public ArbolBinario<DatosPaciente> AccesoArbol = new ArbolBinario<DatosPaciente>();
+        public ArbolBinario<DatosPaciente> ArbolGeneralApellido = new ArbolBinario<DatosPaciente>();
+        public ArbolBinario<DatosPaciente> ArbolGeneralDPI = new ArbolBinario<DatosPaciente>();
 
         // Listas para almacenar informacion entre vistas
         public List<DatosPaciente> ListaParaView = new List<DatosPaciente>();
