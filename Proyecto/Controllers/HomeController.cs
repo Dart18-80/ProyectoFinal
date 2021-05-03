@@ -537,16 +537,17 @@ namespace Proyecto.Controllers
 
 
             //Insertar datos en los arboles AVL
-
             DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNombre);
             Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
-            Singleton.Instance.ListaParaView.Clear();
+
 
             //Insertar en los hospitales 
             Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
             Singleton.Instance.BusquedadHospitales.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarNombre);
 
-            return View();
+            Singleton.Instance.ListaParaView.Clear();
+
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
