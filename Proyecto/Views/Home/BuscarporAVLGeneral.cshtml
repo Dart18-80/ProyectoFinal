@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Proyecto.Models.DatosPaciente>
+
+@{
+    ViewData["Title"] = "BuscarporAVLGeneral";
+}
+
+<h1>Buscar por AVL General</h1>
+
+<form asp-action="BuscarporAVLGeneral" method="get">
+    <div class="from-action no-gutters">
+        <p>
+            Por nombre  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" />
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+<form asp-action="BuscarporAVLGeneral" method="get">
+    <div class="from-action no-gutters">
+        <p>
+            por apellido  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" />
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+<form asp-action="BuscarporAVLGeneral" method="get">
+    <div class="from-action no-gutters">
+        <p>
+            por dpi  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" />
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+-------------------------------------------------------------------------------
+<form asp-action="BuscarporAVLGeneral" method="get">
+    <div class="from-action no-gutters">
+        <p>
+            Nombre  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" /><br /><br />
+
+            Apellido  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" /><br><br />
+
+            dpi :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" /><br /><br />
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+--------------------------------------------------------------------------------------------
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePaciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApellidoPaciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DPIPartidadenacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prioridad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoPaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Municipio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prioridad)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
