@@ -549,6 +549,10 @@ namespace Proyecto.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult BuscarporAVL()//vista donde se puede buscar por menio de un avl especifico o genereal 
+        {
+            return View(Singleton.Instance.ListaParaBusquedasAVL);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
