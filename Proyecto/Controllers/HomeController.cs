@@ -47,8 +47,6 @@ namespace Proyecto.Controllers
                     }
                 }
 
-
-
                 //Negacion para que ya no lo vuelva a hacer
                 Singleton.Instance.VerificacionHospitales++;
             }
