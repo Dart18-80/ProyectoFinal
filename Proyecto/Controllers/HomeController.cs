@@ -25,7 +25,7 @@ namespace Proyecto.Controllers
         
         public IActionResult Index()//Menu del Programa
         {
-            if (Singleton.Instance.VerificacionHospitales) 
+            if (Singleton.Instance.VerificacionHospitales != 1) 
             {
 
                 //Creacion de todos los hospitales 
@@ -35,7 +35,7 @@ namespace Proyecto.Controllers
                 Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(NuevaCrearCita.Municipio, NuevaBusquedadHospital));
 
                 //Negacion para que ya no lo vuelva a hacer
-                Singleton.Instance.VerificacionHospitales = false;
+                Singleton.Instance.VerificacionHospitales++;
             }
             return View();
         }
