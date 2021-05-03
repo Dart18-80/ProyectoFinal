@@ -13,6 +13,7 @@ namespace Proyecto.Models
         {
             NodeEstructuras<T> Nuevo = new NodeEstructuras<T>();
             Nuevo.Estructura = Data;
+            Nuevo.NombreHospital = Nombre;
             return Nuevo;
         }
 
@@ -21,6 +22,7 @@ namespace Proyecto.Models
             if (Primero == null)
             {
                 Primero = Nuevo;
+                Primero.NombreHospital = Nuevo.NombreHospital;
             }
             else
             {
@@ -32,6 +34,7 @@ namespace Proyecto.Models
             if (Raiz.Siguiente == null)
             {
                 Raiz.Siguiente = Nuevo;
+                Raiz.Siguiente.NombreHospital = Nuevo.NombreHospital;
             }
             else
             {
