@@ -8,24 +8,20 @@ namespace LibreriaDeClasesPED1
         NodoPrioridad<T> Primero;
         NodoPrioridad<T> Ultimo;
 
-        public NodoPrioridad<T> CrearNodo(T Data)
-        {
-            NodoPrioridad<T> Nuevo = new NodoPrioridad<T>();
-            Nuevo.Data = Data;
-            return Nuevo;
-        }
 
-        public void InsertQueue(NodoPrioridad<T> Nuevo)
+        public void InsertQueue(T Nuevo)
         {
+            NodoPrioridad<T> Estruct = new NodoPrioridad<T>();
+            Estruct.Data = Nuevo;
             if (Primero == null)
             {
-                Primero = Nuevo;
-                Nuevo.Arriba = null;
-                Ultimo = Nuevo;
+                Primero = Estruct;
+                Estruct.Arriba = null;
+                Ultimo = Estruct;
             }
             else
             {
-                InsertQueu(Nuevo, Primero);
+                InsertQueu(Estruct, Primero);
             }
         }
 

@@ -542,7 +542,9 @@ namespace Proyecto.Controllers
             Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
             Singleton.Instance.ListaParaView.Clear();
 
-            //Cola para la creacion del municipio
+            //Insertar en los hospitales 
+            Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
+            Singleton.Instance.BusquedadHospitales.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarNombre);
 
             return View();
         }
