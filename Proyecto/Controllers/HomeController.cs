@@ -10,16 +10,18 @@ using Microsoft.Extensions.Logging;
 using Proyecto.Models;
 using Proyecto.Helpers;
 using LibreriaDeClasesPED1;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Proyecto.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _enviroment;
 
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment env)
         {
+            _enviroment = env;
             _logger = logger;
         }
         
@@ -31,8 +33,21 @@ namespace Proyecto.Controllers
                 //Creacion de todos los hospitales 
                 ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
                 ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
-                Singleton.Instance.HospitalesColas.Encolar(Singleton.Instance.HospitalesColas.CrearEstructura(NuevaCrearCita.Municipio, NuevoHospital));
-                Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(NuevaCrearCita.Municipio, NuevaBusquedadHospital));
+                var filename = System.IO.Path.Combine(_enviroment.ContentRootPath, "Upload", "Municipios.csv");
+                string ccc = System.IO.File.ReadAllText(filename);
+                foreach (string row in ccc.Split('\n'))
+                {
+                    if (!string.IsNullOrEmpty(row))
+                    {
+                        var result = Regex.Split(row, "(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)");
+                        string Muni = Convert.ToString(result[1].Replace('\r', ' ').ToUpper());
+                        string Municipio = Regex.Replace(Muni, @"\s", "").ToUpper();
+                        Singleton.Instance.HospitalesColas.Encolar(Singleton.Instance.HospitalesColas.CrearEstructura(Municipio, NuevoHospital));
+                        Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(Municipio, NuevaBusquedadHospital));
+                    }
+                }
+
+
 
                 //Negacion para que ya no lo vuelva a hacer
                 Singleton.Instance.VerificacionHospitales++;
@@ -99,6 +114,14 @@ namespace Proyecto.Controllers
                 ViewData["MUN6"] = "Patzún";
                 ViewData["MUN7"] = "Pochuta";
                 ViewData["MUN8"] = "San Andrés Itzapa";
+                ViewData["MUN9"] = "San José Poaquíl";
+                ViewData["MUN10"] = "San Juan Comalapa";
+                ViewData["MUN11"] = "San Martín Jilotepeque";
+                ViewData["MUN12"] = "Santa Apolonia";
+                ViewData["MUN13"] = "Santa Cruz Balanyá";
+                ViewData["MUN14"] = "Tecpán";
+                ViewData["MUN15"] = "Yepocapa";
+                ViewData["MUN16"] = "Zaragoza";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Chiquimula".ToUpper())
             {
@@ -108,6 +131,11 @@ namespace Proyecto.Controllers
                 ViewData["MUN4"] = "Esquipulas";
                 ViewData["MUN5"] = "Ipala";
                 ViewData["MUN6"] = "Jocotán";
+                ViewData["MUN7"] = "Olopa";
+                ViewData["MUN8"] = "Quetzaltepeque";
+                ViewData["MUN9"] = "San Jacinto";
+                ViewData["MUN10"] = "San José la Arada";
+                ViewData["MUN11"] = "San Juan Ermita";
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "ElProgreso".ToUpper())
             {
@@ -129,6 +157,14 @@ namespace Proyecto.Controllers
                 ViewData["MUN5"] = "La Gomera";
                 ViewData["MUN6"] = "Masagua";
                 ViewData["MUN7"] = "Nueva Concepción";
+                ViewData["MUN8"] = "Palín";
+                ViewData["MUN9"] = "San José";
+                ViewData["MUN10"] = "San Vicente Pacaya";
+                ViewData["MUN11"] = "Santa Lucía Cotzumalguapa";
+                ViewData["MUN12"] = "Sipacate";
+                ViewData["MUN13"] = "Siquinalá";
+                ViewData["MUN14"] = "Tiquisate";
+
             }
             else if (Singleton.Instance.ListaParaView[0].Departamento == "Guatemala".ToUpper())
             {
