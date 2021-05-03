@@ -546,12 +546,7 @@ namespace Proyecto.Controllers
 
             return View();
         }
-        public IActionResult proar() 
-        {
-            DelegadosBuscarN buscarNomb = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
-            DatosPaciente das= Singleton.Instance.AccesoArbol.Buscar("RAFAEL", buscarNomb);
-            return RedirectToAction("Index");
-        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
