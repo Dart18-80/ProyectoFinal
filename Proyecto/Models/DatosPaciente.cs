@@ -16,7 +16,6 @@ namespace Proyecto.Models
         public string Municipio { get; set; }
         public string Trabajo { get; set; }
         public string Enfermedades { get; set; }
-        public string Hospital{ get; set; }
         public int Prioridad { get; set; }
 
 
