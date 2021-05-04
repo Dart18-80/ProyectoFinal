@@ -535,9 +535,15 @@ namespace Proyecto.Controllers
 
 
             //Insertar datos en los arboles AVL
+            //Nombre
             DelegadosN InvocarNombre = new DelegadosN(CallDatosPersona.CompareToNombre);
             Singleton.Instance.AccesoArbol.Insertar(NuevaCrearCita, InvocarNombre);
-
+            //Apellido
+            DelegadosN InvocarApellido = new DelegadosN(CallDatosPersona.CompareToApellido);
+            Singleton.Instance.ArbolGeneralApellido.Insertar(NuevaCrearCita, InvocarApellido);
+            //DPI
+            DelegadosN InvocarDPI = new DelegadosN(CallDatosPersona.CompareToDPI);
+            Singleton.Instance.ArbolGeneralDPI.Insertar(NuevaCrearCita, InvocarApellido);
 
             //Insertar en los hospitales 
             Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
@@ -547,8 +553,10 @@ namespace Proyecto.Controllers
 
             return RedirectToAction("Index");
         }
-        public IActionResult BuscarporAVLGeneral()//vista donde se puede buscar por menio de un avl especifico o genereal 
+        public IActionResult BuscarporAVLGeneral()//vista donde se puede buscar por medio de un avl especifico o genereal 
         {
+            string BuscarN = null;
+            ViewData["BusquedaNomb"] = BuscarN;
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
 

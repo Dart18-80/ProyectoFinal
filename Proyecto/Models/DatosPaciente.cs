@@ -19,22 +19,21 @@ namespace Proyecto.Models
         public int Prioridad { get; set; }
 
 
-        public int BuscarPorDPI(string Nombre1, DatosPaciente Nombre2)
+        public int BuscarPorDPI(string DP1, DatosPaciente DP12)
         {
-            return Nombre1.CompareTo(Nombre2.DPIPartidadenacimiento);
+            return DP1.CompareTo(DP12.DPIPartidadenacimiento);
         }
-        public int CompareToDPI(DatosPaciente Nombre1, DatosPaciente Nombre2)
+        public int CompareToDPI(DatosPaciente DP1, DatosPaciente DP12)
         {
-            return Nombre1.DPIPartidadenacimiento.CompareTo(Nombre2.DPIPartidadenacimiento);
+            return DP1.DPIPartidadenacimiento.CompareTo(DP12.DPIPartidadenacimiento);
         }
-
-        public int BuscarPorApellido(string Nombre1, DatosPaciente Nombre2)
+        public int BuscarPorApellido(string Apellido1, DatosPaciente Apellido2)
         {
-            return Nombre1.CompareTo(Nombre2.ApellidoPaciente);
+            return Apellido1.CompareTo(Apellido2.ApellidoPaciente);
         }
-        public int CompareToApellido(DatosPaciente Nombre1, DatosPaciente Nombre2)
+        public int CompareToApellido(DatosPaciente Apellido1, DatosPaciente Apellido2)
         {
-            return Nombre1.ApellidoPaciente.CompareTo(Nombre2.ApellidoPaciente);
+            return Apellido1.ApellidoPaciente.CompareTo(Apellido2.ApellidoPaciente);
         }
         public int BuscarPorNombre(string Nombre1, DatosPaciente Nombre2)
         {

@@ -9,7 +9,7 @@
 <form asp-action="BuscarporAVLGeneral" method="get">
     <div class="from-action no-gutters">
         <p>
-            Por nombre  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" />
+            Por Nombre:<input type="text" name="SSearch" value="@ViewData["BusquedaNomb"]" />
             <input type="submit" value="Buscar" class="btn btn-primary" />
         </p>
     </div>
@@ -17,7 +17,7 @@
 <form asp-action="BuscarporAVLGeneral" method="get">
     <div class="from-action no-gutters">
         <p>
-            por apellido  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" />
+            Por Apellido :<input type="text" name="SSearch" value="@ViewData["BusquedaApe"]" />
             <input type="submit" value="Buscar" class="btn btn-primary" />
         </p>
     </div>
@@ -25,26 +25,11 @@
 <form asp-action="BuscarporAVLGeneral" method="get">
     <div class="from-action no-gutters">
         <p>
-            por dpi  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" />
+            Por DPI:<input type="text" name="SSearch" value="@ViewData["BusquedaDpi"]" />
             <input type="submit" value="Buscar" class="btn btn-primary" />
         </p>
     </div>
 </form>
--------------------------------------------------------------------------------
-<form asp-action="BuscarporAVLGeneral" method="get">
-    <div class="from-action no-gutters">
-        <p>
-            Nombre  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" /><br /><br />
-
-            Apellido  :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" /><br><br />
-
-            dpi :<input type="text" name="SSearch" value="@ViewData["CurrentFilterSearch"]" /><br /><br />
-            <input type="submit" value="Buscar" class="btn btn-primary" />
-        </p>
-    </div>
-</form>
---------------------------------------------------------------------------------------------
-
 
 <table class="table">
     <thead>
