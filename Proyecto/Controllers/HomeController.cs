@@ -548,6 +548,9 @@ namespace Proyecto.Controllers
             //Insertar en los hospitales 
             Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
             Singleton.Instance.BusquedadHospitales.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarNombre);
+            Singleton.Instance.BusquedadHospitalApellido.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarApellido);
+            Singleton.Instance.BusquedadHospitalDPI.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarDPI);
+
 
             Singleton.Instance.ListaParaView.Clear();
 

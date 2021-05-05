@@ -38,6 +38,7 @@ namespace Proyecto.Helpers
         // Llamado de las estructuras que guardar los hospitales
         public ColaEstructura<ColaPrioridad<DatosPaciente>> HospitalesColas = new ColaEstructura<ColaPrioridad<DatosPaciente>>();
         public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitales = new ColaEstructura<ArbolBinario<DatosPaciente>>();
-
+        public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitalDPI = new ColaEstructura<ArbolBinario<DatosPaciente>>();
+        public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitalApellido = new ColaEstructura<ArbolBinario<DatosPaciente>>();
     }
 }
