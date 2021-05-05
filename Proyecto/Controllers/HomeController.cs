@@ -18,7 +18,8 @@ namespace Proyecto.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IWebHostEnvironment _enviroment;
-
+        public static int vacunados = 0;
+        public static int novacunados = 0;
         public HomeController(ILogger<HomeController> logger, IWebHostEnvironment env)
         {
             _enviroment = env;
@@ -44,6 +45,9 @@ namespace Proyecto.Controllers
                         string Municipio = Regex.Replace(Muni, @"\s", "").ToUpper();
                         Singleton.Instance.HospitalesColas.Encolar(Singleton.Instance.HospitalesColas.CrearEstructura(Municipio, NuevoHospital));
                         Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(Municipio, NuevaBusquedadHospital));
+                        Singleton.Instance.BusquedadHospitalApellido.Encolar(Singleton.Instance.BusquedadHospitalApellido.CrearEstructura(Municipio, NuevaBusquedadHospital));
+                        Singleton.Instance.BusquedadHospitalDPI.Encolar(Singleton.Instance.BusquedadHospitalDPI.CrearEstructura(Municipio, NuevaBusquedadHospital));
+
                     }
                 }
 
@@ -524,7 +528,7 @@ namespace Proyecto.Controllers
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
                 Prioridad = PrioridadTotal
             };
-
+            vacunados += 1;
 
             //Ingreso de la posicion a la estructura de tabla hash
 
@@ -546,10 +550,10 @@ namespace Proyecto.Controllers
             Singleton.Instance.ArbolGeneralDPI.Insertar(NuevaCrearCita, InvocarApellido);
 
             //Insertar en los hospitales 
-            Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
+            Singleton.Instance.HospitalesColas..RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarApellido);
+            Singleton.Instance.BusqRetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
             Singleton.Instance.BusquedadHospitales.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarNombre);
-            Singleton.Instance.BusquedadHospitalApellido.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarApellido);
-            Singleton.Instance.BusquedadHospitalDPI.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarDPI);
+            Singleton.Instance.BusquedadHospitalApellidouedadHospitalDPI.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarDPI);
 
 
             Singleton.Instance.ListaParaView.Clear();
