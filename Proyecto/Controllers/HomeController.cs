@@ -555,10 +555,21 @@ namespace Proyecto.Controllers
         }
         public IActionResult BuscarporAVLGeneral(string BuscarNombre, string BuscarApellido, string BuscarDPI)//vista donde se puede buscar por medio de un avl especifico o genereal 
         {
-            string a = BuscarNombre;
-            string b = BuscarApellido;
-            string v = BuscarDPI;
+            string BuscaNom = BuscarNombre;
+            string BuscaApe = BuscarApellido;
+            string BuscaD = BuscarDPI;
+            if (BuscaNom!=null)
+            {
 
+            }
+            else if (BuscarApellido!=null)
+            {
+
+            }
+            else if (BuscarDPI!=null)
+            {
+
+            }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
 

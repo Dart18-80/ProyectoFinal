@@ -5,7 +5,7 @@
 }
 
 <h1>Buscar por AVL General</h1>
-
+"@ViewData["Null"]"
 <form asp-action="BuscarporAVLGeneral" method="get">
     <div class="from-action no-gutters">
         <p>
@@ -59,34 +59,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombrePaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApellidoPaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Departamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Municipio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prioridad)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) 
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prioridad)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
