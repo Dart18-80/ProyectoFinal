@@ -553,10 +553,12 @@ namespace Proyecto.Controllers
 
             return RedirectToAction("Index");
         }
-        public IActionResult BuscarporAVLGeneral()//vista donde se puede buscar por medio de un avl especifico o genereal 
+        public IActionResult BuscarporAVLGeneral(string BuscarNombre, string BuscarApellido, string BuscarDPI)//vista donde se puede buscar por medio de un avl especifico o genereal 
         {
-            string BuscarN = null;
-            ViewData["BusquedaNomb"] = BuscarN;
+            string a = BuscarNombre;
+            string b = BuscarApellido;
+            string v = BuscarDPI;
+
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
 
