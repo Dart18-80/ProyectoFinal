@@ -160,7 +160,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN6"] = "Masagua";
                 ViewData["MUN7"] = "Nueva Concepción";
                 ViewData["MUN8"] = "Palín";
-                ViewData["MUN9"] = "San José";
+                ViewData["MUN9"] = "San José Escuintla";
                 ViewData["MUN10"] = "San Vicente Pacaya";
                 ViewData["MUN11"] = "Santa Lucía Cotzumalguapa";
                 ViewData["MUN12"] = "Sipacate";
@@ -182,7 +182,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN10"] = "San Juan Sacatepéquez";
                 ViewData["MUN11"] = "San Miguel Petapa";
                 ViewData["MUN12"] = "San Pedro Ayampuc";
-                ViewData["MUN13"] = "San Pedro Sacatepéquez";
+                ViewData["MUN13"] = "San Pedro Sacatepéquez Guatemala";
                 ViewData["MUN14"] = "San Raymundo";
                 ViewData["MUN15"] = "Santa Catarina Pinula";
                 ViewData["MUN16"] = "Villa Canales";
@@ -199,7 +199,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN6"] = "Huehuetenango";
                 ViewData["MUN7"] = "Jacaltenango";
                 ViewData["MUN8"] = "La Democracia";
-                ViewData["MUN9"] = "La Libertad";
+                ViewData["MUN9"] = "La Libertad Huehuetenango";
                 ViewData["MUN10"] = "Malacatancito";
                 ViewData["MUN11"] = "Nentón";
                 ViewData["MUN12"] = "Petatán";
@@ -217,7 +217,7 @@ namespace Proyecto.Controllers
                 ViewData["MUN24"] = "San Sebastián Coatán";
                 ViewData["MUN25"] = "San Sebastián Huehuetenango";
                 ViewData["MUN26"] = "Santa Ana Huista";
-                ViewData["MUN27"] = "Santa Bárbara";
+                ViewData["MUN27"] = "Santa Bárbara Huehuetenango";
                 ViewData["MUN28"] = "Santa Cruz Barillas";
                 ViewData["MUN29"] = "Santa Eulalia";
                 ViewData["MUN30"] = "Santiago Chimaltenango";
@@ -268,14 +268,14 @@ namespace Proyecto.Controllers
                 ViewData["MUN1"] = "Dolores";
                 ViewData["MUN2"] = "El Chal";
                 ViewData["MUN3"] = "Isla de Flores";
-                ViewData["MUN4"] = "La Libertad";
+                ViewData["MUN4"] = "La Libertad Petén";
                 ViewData["MUN5"] = "Las Cruces";
                 ViewData["MUN6"] = "Melchor de Mencos";
                 ViewData["MUN7"] = "Poptún";
                 ViewData["MUN8"] = "San Andres";
                 ViewData["MUN9"] = "San Benito";
                 ViewData["MUN10"] = "San Francisco";
-                ViewData["MUN11"] = "San José";
+                ViewData["MUN11"] = "San José Petén";
                 ViewData["MUN12"] = "San Luis";
                 ViewData["MUN13"] = "Santa Ana";
                 ViewData["MUN14"] = "Sayaxché";
@@ -383,11 +383,11 @@ namespace Proyecto.Controllers
                 ViewData["MUN17"] = "San Cristóbal Cucho";
                 ViewData["MUN18"] = "San José El Rodeo";
                 ViewData["MUN19"] = "San José Ojetenam";
-                ViewData["MUN20"] = "San Lorenzo";
+                ViewData["MUN20"] = "San Lorenzo San Marcos";
                 ViewData["MUN21"] = "San Marcos";
                 ViewData["MUN22"] = "San Miguel Ixtahuacán";
                 ViewData["MUN23"] = "San Pablo";
-                ViewData["MUN24"] = "San Pedro Sacatepéquez";
+                ViewData["MUN24"] = "San Pedro Sacatepéquez San Marcos";
                 ViewData["MUN25"] = "San Rafael Pie de la Cuesta";
                 ViewData["MUN26"] = "Sibinal";
                 ViewData["MUN27"] = "Sipacapa";
@@ -450,10 +450,10 @@ namespace Proyecto.Controllers
                 ViewData["MUN12"] = "San José El Ídolo";
                 ViewData["MUN13"] = "San José La Máquina";
                 ViewData["MUN14"] = "San Juan Bautista";
-                ViewData["MUN15"] = "San Lorenzo";
+                ViewData["MUN15"] = "San Lorenzo Suchitepéquez";
                 ViewData["MUN16"] = "San Miguel Panán";
                 ViewData["MUN17"] = "San Pablo Jocopilas";
-                ViewData["MUN18"] = "Santa Bárbara";
+                ViewData["MUN18"] = "Santa Bárbara Suchitepéquez";
                 ViewData["MUN19"] = "Santo Domingo Suchitepéquez";
                 ViewData["MUN20"] = "Santo Tomás La Unión";
                 ViewData["MUN21"] = "Zunilito";
@@ -574,6 +574,25 @@ namespace Proyecto.Controllers
 
             }
             else if (BuscarDPI!=null)
+            {
+
+            }
+            return View(Singleton.Instance.ListaParaBusquedasAVL);
+        }
+        public IActionResult BuscarPorHospitalAVL(string BuscarNombre, string BuscarApellido, string BuscarDPI)//vista donde se puede buscar por medio de un avl especifico o genereal 
+        {
+            string BuscaNom = BuscarNombre;
+            string BuscaApe = BuscarApellido;
+            string BuscaD = BuscarDPI;
+            if (BuscaNom != null)
+            {
+
+            }
+            else if (BuscarApellido != null)
+            {
+
+            }
+            else if (BuscarDPI != null)
             {
 
             }
