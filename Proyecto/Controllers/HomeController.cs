@@ -567,15 +567,18 @@ namespace Proyecto.Controllers
             string BuscaD = BuscarDPI;
             if (BuscaNom!=null)
             {
-
+                DelegadosBuscarN BusquedadPorNombre = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
+                Singleton.Instance.AccesoArbol.Buscar(BuscaNom,BusquedadPorNombre);
             }
             else if (BuscarApellido!=null)
             {
-
+                DelegadosBuscarN BusquedadPorApellido = new DelegadosBuscarN(CallDatosPersona.BuscarPorApellido);
+                Singleton.Instance.ArbolGeneralApellido.Buscar(BuscaNom, BusquedadPorApellido);
             }
             else if (BuscarDPI!=null)
             {
-
+                DelegadosBuscarN BusquedadPorDPI = new DelegadosBuscarN(CallDatosPersona.BuscarPorDPI);
+                Singleton.Instance.ArbolGeneralApellido.Buscar(BuscaNom, BusquedadPorDPI);
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
@@ -586,15 +589,18 @@ namespace Proyecto.Controllers
             string BuscaD = BuscarDPI;
             if (BuscaNom != null)
             {
-
+                DelegadosBuscarN BusquedadPorNombre = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
+                Singleton.Instance.BusquedadHospitales.RetornarEstructura(NombreDelHospital).Buscar(BuscaNom, BusquedadPorNombre); // Te devuelve un nodo
             }
             else if (BuscarApellido != null)
             {
-
+                DelegadosBuscarN BusquedadPorApellido = new DelegadosBuscarN(CallDatosPersona.BuscarPorApellido);
+                Singleton.Instance.BusquedadHospitales.RetornarEstructura(NombreDelHospital).Buscar(BuscaNom, BuscarPorApellido);// Te devuelve un nodo
             }
             else if (BuscarDPI != null)
             {
-
+                DelegadosBuscarN BusquedadPorDPI = new DelegadosBuscarN(CallDatosPersona.BuscarPorDPI);
+                Singleton.Instance.BusquedadHospitales.RetornarEstructura(NombreDelHospital).Buscar(BuscaNom, BuscarPorDPI);// Te devuelve un nodo
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
