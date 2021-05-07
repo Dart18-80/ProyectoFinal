@@ -190,7 +190,7 @@ namespace LibreriaDeClasesPED1
         {
             T Nuevo;
             //Verificacion de si Raiz.Data esta null
-            if (Raiz.Data != null)
+            if (Raiz != null)
             {
                 int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
                 if (Verificacion != 0)

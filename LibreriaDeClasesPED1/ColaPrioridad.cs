@@ -130,20 +130,28 @@ namespace LibreriaDeClasesPED1
             }
         }
 
-        public T returnNode(Delegate Condicion)
+        public T returnNode(Delegate Condicion, T Default)
         {
-            T Aux = Primero.Data;
-            Primero.Data = Ultimo.Data;
-            if (Primero.Siguiente != null)
+            if (Primero == null)
             {
-                Delete(Primero, Primero.Siguiente, Condicion);
+                T Aux = Primero.Data;
+                Primero.Data = Ultimo.Data;
+                if (Primero.Siguiente != null)
+                {
+                    Delete(Primero, Primero.Siguiente, Condicion);
+                }
+                else
+                {
+                    Primero = null;
+                    Ultimo = null;
+
+                }
+                return Aux;
             }
-            else
+            else 
             {
-                Primero = null;
-                Ultimo = null;
+                return Default;
             }
-            return Aux;
         }
         void Delete(NodoPrioridad<T> Raiz, NodoPrioridad<T> Sig, Delegate Condicion)
         {

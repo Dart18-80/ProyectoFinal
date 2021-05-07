@@ -631,16 +631,18 @@ namespace Proyecto.Controllers
                 DatosPaciente PrimerPaciente = new DatosPaciente();
                 DatosPaciente SegundoPaciente = new DatosPaciente();
                 DatosPaciente TercerPaciente = new DatosPaciente();
+                DatosPaciente NodoDefault = new DatosPaciente();
+                NodoDefault.NombrePaciente = "Ya no se encuentra ninguno mas ";
 
-                PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad);
+                PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad,NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(PrimerPaciente);
 
-                SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad);
+                SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(SegundoPaciente);
 
-                TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad);
+                TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(TercerPaciente);
 
