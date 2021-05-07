@@ -664,12 +664,13 @@ namespace Proyecto.Controllers
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    if (Singleton.Instance.ListadePacientesParaV[i].Edad!=0)
+                    if (Singleton.Instance.ListadePacientesParaV[i].Edad>0)
                     {
                         DelegadosN Ordenar = new DelegadosN(CallDatosPersona.CompareToPrioridad);
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertQueue(Singleton.Instance.ListadePacientesParaV[i]);
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).HeapSort(Ordenar);
                     }
+                    Singleton.Instance.ListadePacientesParaV.Clear();
                 }
                 return RedirectToAction("Index");
             }
