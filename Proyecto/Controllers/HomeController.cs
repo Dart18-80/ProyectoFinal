@@ -656,7 +656,7 @@ namespace Proyecto.Controllers
         }
         public IActionResult DatosParaAceptarPaciente(string ValidarCe, string DeclinarCe) 
         {
-            if (ValidarCe!=null)
+            if (ValidarCe!=null && Singleton.Instance.ListadePacientesParaV.Count!=0)
             {
                 for (int i = 0; i < 2; i++) 
                 {
@@ -689,7 +689,7 @@ namespace Proyecto.Controllers
                     }
                 }
             }
-            else if (DeclinarCe!=null)
+            else if (DeclinarCe!=null && Singleton.Instance.ListadePacientesParaV.Count != 0)
             {
                 for (int i = 0; i < 2; i++)
                 {
