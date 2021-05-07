@@ -638,22 +638,36 @@ namespace Proyecto.Controllers
                 PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad,NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(PrimerPaciente);
+                Singleton.Instance.ListadePacientesParaV.Add(PrimerPaciente);
 
                 SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(SegundoPaciente);
+                Singleton.Instance.ListadePacientesParaV.Add(SegundoPaciente);
 
                 TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(TercerPaciente);
+                Singleton.Instance.ListadePacientesParaV.Add(TercerPaciente);
 
                 return View(Singleton.Instance.ListaMuesraPrimerosCola);
             }
             return View(Singleton.Instance.ListaMuesraPrimerosCola);
         }
-        public IActionResult DatosParaAceptarPaaciente(string ValidarCe, string DeclinarCe) 
+        public IActionResult DatosParaAceptarPaciente(string ValidarCe, string DeclinarCe) 
         {
+            if (ValidarCe!=null)
+            {
 
+            }
+            else if (DeclinarCe!=null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
             return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

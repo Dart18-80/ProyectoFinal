@@ -395,17 +395,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Prioridad)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                </td>
             </tr>
             
         }
     </tbody>
 </table>
-<form asp-action="DatosParaAceptarPaaciente" method="get">
+<form asp-action="DatosParaAceptarPaciente" method="get">
     <input type="submit" class="btn-primary" name="ValidarCe" value="Aceptaracientes" />
 </form>
-<form asp-action="DatosParaAceptarPaaciente" method="get">
-    <input type="submit" class="btn-primary" name="DeclinarCe" value="Declinar " />
+<form asp-action="DatosParaAceptarPaciente" method="get">
+    <input type="submit" class="btn-primary" name="DeclinarCe" value="Declinar" />
 </form>
