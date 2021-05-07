@@ -39,17 +39,20 @@ namespace Proyecto.Models
             if (Singleton.Instance.Contador <= 2 && Singleton.Instance.Contador >= 0 )
             {
                 Singleton.Instance.Contador++;
-                return Singleton.Instance.Global;
+                DateTime Nueva = Singleton.Instance.Global.AddHours(10);
+                return Nueva;
             }
             else if (Singleton.Instance.Contador <= 5 && Singleton.Instance.Contador >= 3 )
             {
                 Singleton.Instance.Contador++;
-                return Singleton.Instance.Global;
+                DateTime Nueva = Singleton.Instance.Global.AddHours(14);
+                return Nueva;
             }
             else if (Singleton.Instance.Contador <= 8 && Singleton.Instance.Contador >= 6)
             {
                 Singleton.Instance.Contador++;
-                return Singleton.Instance.Global;
+                DateTime Nueva = Singleton.Instance.Global.AddHours(18);
+                return Nueva;
             }
             else if (Singleton.Instance.Contador == 9)
             {

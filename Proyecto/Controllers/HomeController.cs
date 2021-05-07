@@ -665,25 +665,16 @@ namespace Proyecto.Controllers
                         if (Singleton.Instance.Contador >= 0 && Singleton.Instance.Contador <= 2)
                         {
                             DateTime Nueva = LLamadoFecha.FechaParaAsignar();
-                            string FechaEdicion = Convert.ToString(Nueva);
-                            FechaEdicion += " 10:00:00";
-                            Nueva = Convert.ToDateTime(FechaEdicion);
                             Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[i], Nueva);
                         }
                         else if (Singleton.Instance.Contador >= 3 && Singleton.Instance.Contador <= 5)
                         {
                             DateTime Nueva = LLamadoFecha.FechaParaAsignar();
-                            string FechaEdicion = Convert.ToString(Nueva);
-                            FechaEdicion += " 14:00:00";
-                            Nueva = Convert.ToDateTime(FechaEdicion);
                             Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[i], Nueva);
                         }
                         else 
                         {
                             DateTime Nueva = LLamadoFecha.FechaParaAsignar();
-                            string FechaEdicion = Convert.ToString(Nueva);
-                            FechaEdicion += " 18:00:00";
-                            Nueva = Convert.ToDateTime(FechaEdicion);
                             Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[i], Nueva);
                         }
                     }
