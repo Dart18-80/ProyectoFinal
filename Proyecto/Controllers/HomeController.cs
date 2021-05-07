@@ -683,9 +683,9 @@ namespace Proyecto.Controllers
             }
             else if (DeclinarCe!=null && Singleton.Instance.ListadePacientesParaV.Count != 0)
             {
-                for (int i = 0; i <3; i++)
+                for (int i = 0; i < 3; i++)
                 {
-                    if (Singleton.Instance.ListadePacientesParaV[i].Edad>0)
+                    if (Singleton.Instance.ListadePacientesParaV[i].Edad > 0)
                     {
                         DelegadosN Ordenar = new DelegadosN(CallDatosPersona.CompareToPrioridad);
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertQueue(Singleton.Instance.ListadePacientesParaV[i]);
