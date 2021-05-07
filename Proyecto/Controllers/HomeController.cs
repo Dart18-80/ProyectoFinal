@@ -688,10 +688,11 @@ namespace Proyecto.Controllers
                         }
                     }
                 }
+                Singleton.Instance.ListadePacientesParaV.Clear();
             }
             else if (DeclinarCe!=null && Singleton.Instance.ListadePacientesParaV.Count != 0)
             {
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i <3; i++)
                 {
                     if (Singleton.Instance.ListadePacientesParaV[i].Edad>0)
                     {
@@ -699,13 +700,14 @@ namespace Proyecto.Controllers
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertQueue(Singleton.Instance.ListadePacientesParaV[i]);
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).HeapSort(Ordenar);
                     }
-                    Singleton.Instance.ListadePacientesParaV.Clear();
                 }
+                Singleton.Instance.ListadePacientesParaV.Clear();
+
                 return RedirectToAction("Index");
             }
             else
             {
-                return View();
+                return RedirectToAction("Index");
             }
             return View();
         }
