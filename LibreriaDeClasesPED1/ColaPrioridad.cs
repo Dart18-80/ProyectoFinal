@@ -157,7 +157,7 @@ namespace LibreriaDeClasesPED1
         {
             if (Sig != null)
             {
-                if (Raiz.Siguiente.Siguiente != null)
+                if (Sig.Siguiente != null)
                 {
                     Delete(Raiz.Siguiente, Sig.Siguiente, Condicion);
                 }
@@ -165,6 +165,7 @@ namespace LibreriaDeClasesPED1
                 {
                     Ultimo = Raiz;
                     Raiz.Siguiente = null;
+                    Sig = null;
                 }
             }
             else
