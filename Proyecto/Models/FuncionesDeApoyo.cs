@@ -34,26 +34,26 @@ namespace Proyecto.Models
             }
         }
 
-        public DateTime FechaParaAsignar(string Jornada) 
+        public DateTime FechaParaAsignar() 
         {
-            if (Singleton.Instance.Contador <= 2 && Singleton.Instance.Contador >= 0 && Jornada == "Matutina")
+            if (Singleton.Instance.Contador <= 2 && Singleton.Instance.Contador >= 0 )
             {
                 Singleton.Instance.Contador++;
                 return Singleton.Instance.Global;
             }
-            else if (Singleton.Instance.Contador <= 5 && Singleton.Instance.Contador >= 3 && Jornada == "Vespertina")
+            else if (Singleton.Instance.Contador <= 5 && Singleton.Instance.Contador >= 3 )
             {
                 Singleton.Instance.Contador++;
                 return Singleton.Instance.Global;
             }
-            else if (Singleton.Instance.Contador <= 8 && Singleton.Instance.Contador >= 6 && Jornada == "Nocturna")
+            else if (Singleton.Instance.Contador <= 8 && Singleton.Instance.Contador >= 6)
             {
                 Singleton.Instance.Contador++;
                 return Singleton.Instance.Global;
             }
             else if (Singleton.Instance.Contador == 9)
             {
-                Singleton.Instance.Contador = 0;
+                Singleton.Instance.Contador = 1;
                 Singleton.Instance.Global.AddDays(1);
                 return Singleton.Instance.Global;
             }
