@@ -584,7 +584,7 @@ namespace Proyecto.Controllers
             else if (BuscarDPI!=null)
             {
                 DelegadosBuscarN BusquedadPorDPI = new DelegadosBuscarN(CallDatosPersona.BuscarPorDPI);
-                PacienteBuscado= Singleton.Instance.ArbolGeneralApellido.Buscar(Regex.Replace(BuscarDPI, @"\s", "").ToUpper(), BusquedadPorDPI);
+                PacienteBuscado= Singleton.Instance.ArbolGeneralDPI.Buscar(Regex.Replace(BuscarDPI, @"\s", "").ToUpper(), BusquedadPorDPI);
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
@@ -606,13 +606,13 @@ namespace Proyecto.Controllers
             else if (BuscarApellido != null)
             {
                 DelegadosBuscarN BusquedadPorApellido = new DelegadosBuscarN(CallDatosPersona.BuscarPorApellido);
-                PacienteBuscado= Singleton.Instance.BusquedadHospitales.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(Regex.Replace(BuscaApe, @"\s", "").ToUpper(), BusquedadPorApellido);// Te devuelve un nodo
+                PacienteBuscado= Singleton.Instance.BusquedadHospitalApellido.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(Regex.Replace(BuscaApe, @"\s", "").ToUpper(), BusquedadPorApellido);// Te devuelve un nodo
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             else if (BuscarDPI != null)
             {
                 DelegadosBuscarN BusquedadPorDPI = new DelegadosBuscarN(CallDatosPersona.BuscarPorDPI);
-                PacienteBuscado= Singleton.Instance.BusquedadHospitales.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(BuscaD, BusquedadPorDPI);// Te devuelve un nodo
+                PacienteBuscado= Singleton.Instance.BusquedadHospitalDPI.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(BuscaD, BusquedadPorDPI);// Te devuelve un nodo
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
