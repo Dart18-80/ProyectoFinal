@@ -132,7 +132,7 @@ namespace LibreriaDeClasesPED1
 
         public T returnNode(Delegate Condicion, T Default)
         {
-            if (Primero == null)
+            if (Primero != null)
             {
                 T Aux = Primero.Data;
                 Primero.Data = Ultimo.Data;
