@@ -32,12 +32,12 @@ namespace Proyecto.Controllers
             {
 
                 //Creacion de todos los hospitales 
-                ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
-                ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
                 var filename = System.IO.Path.Combine(_enviroment.ContentRootPath, "Upload", "Municipios.csv");
                 string ccc = System.IO.File.ReadAllText(filename);
                 foreach (string row in ccc.Split('\n'))
                 {
+                    ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
+                    ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
                     if (!string.IsNullOrEmpty(row))
                     {
                         var result = Regex.Split(row, "(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)");
