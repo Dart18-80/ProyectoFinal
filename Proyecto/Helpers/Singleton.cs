@@ -40,5 +40,10 @@ namespace Proyecto.Helpers
         public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitales = new ColaEstructura<ArbolBinario<DatosPaciente>>();
         public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitalDPI = new ColaEstructura<ArbolBinario<DatosPaciente>>();
         public ColaEstructura<ArbolBinario<DatosPaciente>> BusquedadHospitalApellido = new ColaEstructura<ArbolBinario<DatosPaciente>>();
+        public ColaEstructura<EstructuraDeFechas<DatosPaciente>> EstructuraParaCitas = new ColaEstructura<EstructuraDeFechas<DatosPaciente>>();
+
+        //Inicio de Fecha 
+        public DateTime Global = Convert.ToDateTime("2021-05-8");
+        public int Contador;
     }
 }
