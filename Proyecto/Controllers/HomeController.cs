@@ -550,7 +550,9 @@ namespace Proyecto.Controllers
             Singleton.Instance.ArbolGeneralDPI.Insertar(NuevaCrearCita, InvocarApellido);
 
             //Insertar en los hospitales 
+            DelegadosN Ordenar = new DelegadosN(CallDatosPersona.CompareToPrioridad);
             Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).InsertQueue(NuevaCrearCita);
+            Singleton.Instance.HospitalesColas.RetornarEstructura(NuevaCrearCita.Municipio).HeapSort(Ordenar);
             Singleton.Instance.BusquedadHospitales.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarNombre);
             Singleton.Instance.BusquedadHospitalApellido.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarApellido);
             Singleton.Instance.BusquedadHospitalDPI.RetornarEstructura(NuevaCrearCita.Municipio).Insertar(NuevaCrearCita, InvocarDPI);

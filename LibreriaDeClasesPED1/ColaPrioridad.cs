@@ -74,7 +74,10 @@ namespace LibreriaDeClasesPED1
                         int PadreDerecha = Convert.ToInt32(Condicion.DynamicInvoke(Siguiente.Data, Siguiente.Derecha.Data));
                         if (PadreDerecha > 0)
                         {
-                            Change(Siguiente.Derecha, Siguiente);
+                            T Almacenar;
+                            Almacenar = Siguiente.Data;
+                            Siguiente.Data = Siguiente.Derecha.Data;
+                            Siguiente.Derecha.Data = Almacenar;
                             HeapSort(Condicion);
                         }
                         else
@@ -87,7 +90,10 @@ namespace LibreriaDeClasesPED1
                         int PadreIzquierda = Convert.ToInt32(Condicion.DynamicInvoke(Siguiente.Data, Siguiente.Izquierda.Data));
                         if (PadreIzquierda > 0)
                         {
-                            Change(Siguiente.Izquierda, Siguiente);
+                            T Almacenar;
+                            Almacenar = Siguiente.Data;
+                            Siguiente.Data = Siguiente.Izquierda.Data;
+                            Siguiente.Izquierda.Data = Almacenar;
                             HeapSort(Condicion);
                         }
                         else
@@ -101,7 +107,10 @@ namespace LibreriaDeClasesPED1
                     int PadreIzquierda = Convert.ToInt32(Condicion.DynamicInvoke(Siguiente.Data, Siguiente.Izquierda.Data));
                     if (PadreIzquierda > 0)
                     {
-                        Change(Siguiente.Izquierda, Siguiente);
+                        T Almacenar;
+                        Almacenar = Siguiente.Data;
+                        Siguiente.Data = Siguiente.Izquierda.Data;
+                        Siguiente.Izquierda.Data = Almacenar;
                         HeapSort(Condicion);
                     }
                     else
@@ -119,12 +128,6 @@ namespace LibreriaDeClasesPED1
             {
                 return;
             }
-        }
-        void Change(NodoPrioridad<T> Subir, NodoPrioridad<T> Bajar)
-        {
-            T Aux = Subir.Data;
-            Subir.Data = Bajar.Data;
-            Bajar.Data = Aux;
         }
 
         public T returnNode(Delegate Condicion)
@@ -152,6 +155,7 @@ namespace LibreriaDeClasesPED1
                 }
                 else
                 {
+                    Ultimo = Raiz;
                     Raiz.Siguiente = null;
                 }
             }
