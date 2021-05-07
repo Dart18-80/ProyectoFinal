@@ -43,6 +43,11 @@ namespace Proyecto.Models
         {
             return Nombre1.NombrePaciente.CompareTo(Nombre2.NombrePaciente);
         }
+
+        public int CompareToPrioridad(DatosPaciente Primero, DatosPaciente Segundo) 
+        {
+            return Primero.Prioridad.CompareTo(Segundo.Prioridad);
+        }
         public int CompareTo(object obj)
         {
             if (Convert.ToInt16(this.CompareTo(obj)) > 0)

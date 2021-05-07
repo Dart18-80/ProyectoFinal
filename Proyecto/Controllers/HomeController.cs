@@ -615,11 +615,26 @@ namespace Proyecto.Controllers
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
+        FuncionesDeApoyo LLamadoFecha = new FuncionesDeApoyo();
         public IActionResult DatosParaVacunacion(string Municipio)//Creacion Para Verificar a los primeros de la cola
         {
             if (Municipio!=null)
             {
+                DelegadosN Prioridad = new DelegadosN(CallDatosPersona.CompareToPrioridad);
+                DatosPaciente PrimerPaciente = new DatosPaciente();
+                DatosPaciente SegundoPaciente = new DatosPaciente();
+                DatosPaciente TercerPaciente = new DatosPaciente();
 
+                PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).returnNode(Prioridad);
+                Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).HeapSort(Prioridad);
+
+                SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).returnNode(Prioridad);
+                Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).HeapSort(Prioridad);
+
+                TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).returnNode(Prioridad);
+                Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).HeapSort(Prioridad);
+
+                
                 return View(Singleton.Instance.ListaMuesraPrimerosCola);
             }
             return View(Singleton.Instance.ListaMuesraPrimerosCola);
