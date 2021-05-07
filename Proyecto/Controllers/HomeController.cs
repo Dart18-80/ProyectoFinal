@@ -666,8 +666,6 @@ namespace Proyecto.Controllers
                 {
                     if (Singleton.Instance.ListadePacientesParaV[i].Edad!=0)
                     {
-                        DatosPaciente nueva = new DatosPaciente();
-                        nueva = Singleton.Instance.ListadePacientesParaV[i];
                         DelegadosN Ordenar = new DelegadosN(CallDatosPersona.CompareToPrioridad);
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertQueue(Singleton.Instance.ListadePacientesParaV[i]);
                         Singleton.Instance.HospitalesColas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).HeapSort(Ordenar);
