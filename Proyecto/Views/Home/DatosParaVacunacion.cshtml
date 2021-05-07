@@ -377,27 +377,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombrePaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApellidoPaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prioridad)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prioridad)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                </td>
+            </tr>
+            
+        }
     </tbody>
 </table>
+<form asp-action="DatosParaAceptarPaaciente" method="get">
+    <input type="submit" class="btn-primary" name="ValidarCe" value="Aceptaracientes" />
+</form>
+<form asp-action="DatosParaAceptarPaaciente" method="get">
+    <input type="submit" class="btn-primary" name="DeclinarCe" value="Declinar " />
+</form>

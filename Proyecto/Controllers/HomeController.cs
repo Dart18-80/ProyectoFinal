@@ -632,7 +632,7 @@ namespace Proyecto.Controllers
                 DatosPaciente SegundoPaciente = new DatosPaciente();
                 DatosPaciente TercerPaciente = new DatosPaciente();
                 DatosPaciente NodoDefault = new DatosPaciente();
-                NodoDefault.NombrePaciente = "Ya no se encuentra ninguno mas ";
+                NodoDefault.NombrePaciente = "Ya no se encuentra ninguno mas";
 
                 PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad,NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
@@ -646,11 +646,14 @@ namespace Proyecto.Controllers
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(TercerPaciente);
 
-
                 return View(Singleton.Instance.ListaMuesraPrimerosCola);
             }
             return View(Singleton.Instance.ListaMuesraPrimerosCola);
+        }
+        public IActionResult DatosParaAceptarPaaciente(string ValidarCe, string DeclinarCe) 
+        {
 
+            return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
