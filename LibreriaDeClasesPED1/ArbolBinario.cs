@@ -150,9 +150,9 @@ namespace LibreriaDeClasesPED1
                 int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
                 if (compar < 0)
                 {
-                    if (Raiz.Izquierda != null)
+                    if (N.Izquierda != null)
                     {
-                        Nuevo = Buscar(nBuscar, Raiz.Izquierda, Comparacion);
+                        Nuevo = Buscar(nBuscar, N.Izquierda, Comparacion);
                         return Nuevo;
                     }
                     else
@@ -162,9 +162,9 @@ namespace LibreriaDeClasesPED1
                 }
                 else
                 {
-                    if (Raiz.Derecha != null)
+                    if (N.Derecha != null)
                     {
-                        Nuevo = Buscar(nBuscar, Raiz.Derecha, Comparacion);
+                        Nuevo = Buscar(nBuscar, N.Derecha, Comparacion);
                         return Nuevo;
                     }
                     else
