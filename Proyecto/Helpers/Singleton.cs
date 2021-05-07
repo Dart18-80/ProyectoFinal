@@ -32,8 +32,7 @@ namespace Proyecto.Helpers
         // Listas para almacenar informacion entre vistas
         public List<DatosPaciente> ListaParaView = new List<DatosPaciente>();
         public List<DatosPaciente> ListaParaBusquedasAVL = new List<DatosPaciente>();
-        public List<string> ListaParaCrearMunicipios = new List<string>();
-
+        public List<DatosPaciente> ListaMuesraPrimerosCola = new List<DatosPaciente>();
 
         // Llamado de las estructuras que guardar los hospitales
         public ColaEstructura<ColaPrioridad<DatosPaciente>> HospitalesColas = new ColaEstructura<ColaPrioridad<DatosPaciente>>();

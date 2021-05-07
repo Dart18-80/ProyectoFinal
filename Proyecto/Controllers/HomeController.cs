@@ -615,7 +615,16 @@ namespace Proyecto.Controllers
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
         }
+        public IActionResult DatosParaVacunacion(string Municipio)//Creacion Para Verificar a los primeros de la cola
+        {
+            if (Municipio!=null)
+            {
 
+                return View(Singleton.Instance.ListaMuesraPrimerosCola);
+            }
+            return View(Singleton.Instance.ListaMuesraPrimerosCola);
+
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
