@@ -568,23 +568,25 @@ namespace Proyecto.Controllers
             string BuscaApe = BuscarApellido;
             string BuscaD = BuscarDPI;
             DatosPaciente PacienteBuscado = new DatosPaciente();
+            DatosPaciente Default = new DatosPaciente();
+            Default.NombrePaciente = "Default";
             Singleton.Instance.ListaParaBusquedasAVL.Clear();
             if (BuscaNom!=null)
             {
                 DelegadosBuscarN BusquedadPorNombre = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
-                PacienteBuscado= Singleton.Instance.AccesoArbol.Buscar(Regex.Replace(BuscaNom, @"\s", "").ToUpper(), BusquedadPorNombre);
+                PacienteBuscado= Singleton.Instance.AccesoArbol.Buscar(Regex.Replace(BuscaNom, @"\s", "").ToUpper(), BusquedadPorNombre,Default);
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             else if (BuscarApellido!=null)
             {
                 DelegadosBuscarN BusquedadPorApellido = new DelegadosBuscarN(CallDatosPersona.BuscarPorApellido);
-                PacienteBuscado= Singleton.Instance.ArbolGeneralApellido.Buscar(Regex.Replace(BuscarApellido, @"\s", "").ToUpper(), BusquedadPorApellido);
+                PacienteBuscado= Singleton.Instance.ArbolGeneralApellido.Buscar(Regex.Replace(BuscarApellido, @"\s", "").ToUpper(), BusquedadPorApellido, Default);
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             else if (BuscarDPI!=null)
             {
                 DelegadosBuscarN BusquedadPorDPI = new DelegadosBuscarN(CallDatosPersona.BuscarPorDPI);
-                PacienteBuscado= Singleton.Instance.ArbolGeneralDPI.Buscar(Regex.Replace(BuscarDPI, @"\s", "").ToUpper(), BusquedadPorDPI);
+                PacienteBuscado= Singleton.Instance.ArbolGeneralDPI.Buscar(Regex.Replace(BuscarDPI, @"\s", "").ToUpper(), BusquedadPorDPI, Default);
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);
@@ -596,23 +598,25 @@ namespace Proyecto.Controllers
             string BuscaD = BuscarDPI;
             string hospi = HospitalMunicipio;
             DatosPaciente PacienteBuscado = new DatosPaciente();
+            DatosPaciente Default = new DatosPaciente();
+            Default.NombrePaciente = "Default";
             Singleton.Instance.ListaParaBusquedasAVL.Clear();
             if (BuscaNom != null)
             {
                 DelegadosBuscarN BusquedadPorNombre = new DelegadosBuscarN(CallDatosPersona.BuscarPorNombre);
-                PacienteBuscado = Singleton.Instance.BusquedadHospitales.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(Regex.Replace(BuscaNom, @"\s", "").ToUpper(), BusquedadPorNombre); // Te devuelve un nodo
+                PacienteBuscado = Singleton.Instance.BusquedadHospitales.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(Regex.Replace(BuscaNom, @"\s", "").ToUpper(), BusquedadPorNombre,Default); // Te devuelve un nodo
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             else if (BuscarApellido != null)
             {
                 DelegadosBuscarN BusquedadPorApellido = new DelegadosBuscarN(CallDatosPersona.BuscarPorApellido);
-                PacienteBuscado= Singleton.Instance.BusquedadHospitalApellido.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(Regex.Replace(BuscaApe, @"\s", "").ToUpper(), BusquedadPorApellido);// Te devuelve un nodo
+                PacienteBuscado= Singleton.Instance.BusquedadHospitalApellido.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(Regex.Replace(BuscaApe, @"\s", "").ToUpper(), BusquedadPorApellido,Default);// Te devuelve un nodo
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             else if (BuscarDPI != null)
             {
                 DelegadosBuscarN BusquedadPorDPI = new DelegadosBuscarN(CallDatosPersona.BuscarPorDPI);
-                PacienteBuscado= Singleton.Instance.BusquedadHospitalDPI.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(BuscaD, BusquedadPorDPI);// Te devuelve un nodo
+                PacienteBuscado= Singleton.Instance.BusquedadHospitalDPI.RetornarEstructura(Regex.Replace(hospi, @"\s", "").ToUpper()).Buscar(BuscaD, BusquedadPorDPI,Default);// Te devuelve un nodo
                 Singleton.Instance.ListaParaBusquedasAVL.Add(PacienteBuscado);
             }
             return View(Singleton.Instance.ListaParaBusquedasAVL);

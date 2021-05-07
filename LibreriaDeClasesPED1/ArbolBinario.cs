@@ -141,81 +141,95 @@ namespace LibreriaDeClasesPED1
                 return 0;
             }
         }
-        public T Buscar(string nBuscar, NodoPrioridad<T> N, Delegate Comparacion)
+        T Buscar(string nBuscar, NodoPrioridad<T> N, Delegate Comparacion, T Default)
         {
             T Nuevo;
-            int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
-            if (Verificacion != 0)
+            if (N != null)
             {
-                int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
-                if (compar < 0)
+                int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
+                if (Verificacion != 0)
                 {
-                    if (N.Izquierda != null)
+                    int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, N.Data));
+                    if (compar < 0)
                     {
-                        Nuevo = Buscar(nBuscar, N.Izquierda, Comparacion);
-                        return Nuevo;
+                        if (N.Izquierda != null)
+                        {
+                            Nuevo = Buscar(nBuscar, N.Izquierda, Comparacion,Default);
+                            return Nuevo;
+                        }
+                        else
+                        {
+                            return default;
+                        }
                     }
                     else
                     {
-                        return default;
+                        if (N.Derecha != null)
+                        {
+                            Nuevo = Buscar(nBuscar, N.Derecha, Comparacion,Default);
+                            return Nuevo;
+                        }
+                        else
+                        {
+                            return default;
+                        }
                     }
                 }
                 else
                 {
-                    if (N.Derecha != null)
-                    {
-                        Nuevo = Buscar(nBuscar, N.Derecha, Comparacion);
-                        return Nuevo;
-                    }
-                    else
-                    {
-                        return default;
-                    }
+                    Nuevo = N.Data;
+                    return Nuevo;
                 }
             }
-            else
+            else 
             {
-                Nuevo = N.Data;
-                return Nuevo;
+                return Default;
             }
         }
-        public T Buscar(string nBuscar, Delegate Comparacion)
+        public T Buscar(string nBuscar, Delegate Comparacion, T Default)
         {
             T Nuevo;
             //Verificacion de si Raiz.Data esta null
-            int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
-            if (Verificacion != 0)
+            if (Raiz.Data != null)
             {
-                int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
-                if (compar < 0)
+                int Verificacion = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
+                if (Verificacion != 0)
                 {
-                    if (Raiz.Izquierda != null)
+                    int compar = Convert.ToInt16(Comparacion.DynamicInvoke(nBuscar, Raiz.Data));
+                    if (compar < 0)
                     {
-                        Nuevo = Buscar(nBuscar, Raiz.Izquierda, Comparacion);
-                        return Nuevo;
+                        if (Raiz.Izquierda != null)
+                        {
+                            Nuevo = Buscar(nBuscar, Raiz.Izquierda, Comparacion,Default);
+                            return Nuevo;
+                        }
+                        else
+                        {
+                            return default;
+                        }
                     }
-                    else 
+                    else
                     {
-                        return default;
+                        if (Raiz.Derecha != null)
+                        {
+                            Nuevo = Buscar(nBuscar, Raiz.Derecha, Comparacion,Default);
+                            return Nuevo;
+                        }
+                        else
+                        {
+                            return default;
+                        }
                     }
                 }
-                else 
+                else
                 {
-                    if (Raiz.Derecha != null)
-                    {
-                        Nuevo = Buscar(nBuscar, Raiz.Derecha, Comparacion);
-                        return Nuevo;
-                    }
-                    else 
-                    {
-                        return default;
-                    }
+                    Nuevo = Raiz.Data;
+                    return Nuevo;
                 }
             }
-            else
+            else 
             {
-                Nuevo = Raiz.Data;
-                return Nuevo;
+                return Default;
             }
         }
 
