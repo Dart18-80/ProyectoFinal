@@ -38,6 +38,7 @@ namespace Proyecto.Controllers
                 {
                     ColaPrioridad<DatosPaciente> NuevoHospital = new ColaPrioridad<DatosPaciente>();
                     ArbolBinario<DatosPaciente> NuevaBusquedadHospital = new ArbolBinario<DatosPaciente>();
+                    EstructuraDeFechas<DatosPaciente> NuevoEstructuraFechas = new EstructuraDeFechas<DatosPaciente>();
                     if (!string.IsNullOrEmpty(row))
                     {
                         var result = Regex.Split(row, "(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)");
@@ -47,7 +48,7 @@ namespace Proyecto.Controllers
                         Singleton.Instance.BusquedadHospitales.Encolar(Singleton.Instance.BusquedadHospitales.CrearEstructura(Municipio, NuevaBusquedadHospital));
                         Singleton.Instance.BusquedadHospitalApellido.Encolar(Singleton.Instance.BusquedadHospitalApellido.CrearEstructura(Municipio, NuevaBusquedadHospital));
                         Singleton.Instance.BusquedadHospitalDPI.Encolar(Singleton.Instance.BusquedadHospitalDPI.CrearEstructura(Municipio, NuevaBusquedadHospital));
-
+                        Singleton.Instance.EstructuraParaCitas.Encolar(Singleton.Instance.EstructuraParaCitas.CrearEstructura(Municipio,NuevoEstructuraFechas));
                     }
                 }
 
@@ -569,7 +570,7 @@ namespace Proyecto.Controllers
             string BuscaD = BuscarDPI;
             DatosPaciente PacienteBuscado = new DatosPaciente();
             DatosPaciente Default = new DatosPaciente();
-            Default.NombrePaciente = "Default";
+            Default.NombrePaciente = "No existe";
             Singleton.Instance.ListaParaBusquedasAVL.Clear();
             if (BuscaNom!=null)
             {
