@@ -662,6 +662,13 @@ namespace Proyecto.Controllers
             }
             else if (DeclinarCe!=null)
             {
+                for (int i = 0; i < 2; i++)
+                {
+                    if (Singleton.Instance.ListadePacientesParaV[i].Edad!=0)
+                    {
+
+                    }
+                }
                 return RedirectToAction("Index");
             }
             else
