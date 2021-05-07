@@ -618,6 +618,7 @@ namespace Proyecto.Controllers
         FuncionesDeApoyo LLamadoFecha = new FuncionesDeApoyo();
         public IActionResult DatosParaVacunacion(string Municipio)//Creacion Para Verificar a los primeros de la cola
         {
+            Singleton.Instance.ListaMuesraPrimerosCola.Clear();
             if (Municipio!=null)
             {
                 DelegadosN Prioridad = new DelegadosN(CallDatosPersona.CompareToPrioridad);
@@ -625,16 +626,19 @@ namespace Proyecto.Controllers
                 DatosPaciente SegundoPaciente = new DatosPaciente();
                 DatosPaciente TercerPaciente = new DatosPaciente();
 
-                PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).returnNode(Prioridad);
-                Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).HeapSort(Prioridad);
+                PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad);
+                Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
+                Singleton.Instance.ListaMuesraPrimerosCola.Add(PrimerPaciente);
 
-                SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).returnNode(Prioridad);
-                Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).HeapSort(Prioridad);
+                SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad);
+                Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
+                Singleton.Instance.ListaMuesraPrimerosCola.Add(SegundoPaciente);
 
-                TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).returnNode(Prioridad);
-                Singleton.Instance.HospitalesColas.RetornarEstructura(Municipio).HeapSort(Prioridad);
+                TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad);
+                Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
+                Singleton.Instance.ListaMuesraPrimerosCola.Add(TercerPaciente);
 
-                
+
                 return View(Singleton.Instance.ListaMuesraPrimerosCola);
             }
             return View(Singleton.Instance.ListaMuesraPrimerosCola);
