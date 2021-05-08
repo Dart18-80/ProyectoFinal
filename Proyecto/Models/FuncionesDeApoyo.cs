@@ -57,8 +57,9 @@ namespace Proyecto.Models
             else if (Singleton.Instance.Contador == 9)
             {
                 Singleton.Instance.Contador = 1;
+                DateTime Nueva = Singleton.Instance.Global.AddDays(1).AddHours(10);
                 Singleton.Instance.Global.AddDays(1);
-                return Singleton.Instance.Global;
+                return Nueva;
             }
             else
             {

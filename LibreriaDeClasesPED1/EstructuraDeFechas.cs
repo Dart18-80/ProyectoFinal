@@ -12,8 +12,10 @@ namespace LibreriaDeClasesPED1
         {
             if (Raiz == null)
             {
-                Raiz.Fecha = Fecha;
-                Raiz.Data = Informacion;
+                NodoFecha<T> Nuevo = new NodoFecha<T>();
+                Nuevo.Fecha = Fecha;
+                Nuevo.Data = Informacion;
+                Raiz = Nuevo;
                 return 1;
             }
             else
@@ -48,7 +50,7 @@ namespace LibreriaDeClasesPED1
                     }
                     else
                     {
-                        return 1;
+                        return 2;
                     }
                 }
                 else 
