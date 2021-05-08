@@ -713,7 +713,13 @@ namespace Proyecto.Controllers
         }
         public IActionResult FechadeCitas()
         {
-            ///////////////////////////////
+            DateTime FechaVista;
+            NodoFecha<DatosPaciente> Nuevo = new NodoFecha<DatosPaciente>();
+            Nuevo = Singleton.Instance.EstructuraParaCitas.RetornarEstructura().Vacunacion();
+            if (Nuevo != null) 
+            {
+                FechaVista = Nuevo.Fecha;
+            }
             return View(Singleton.Instance.ListaParaFechas);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
