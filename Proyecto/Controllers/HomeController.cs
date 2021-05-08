@@ -771,7 +771,9 @@ namespace Proyecto.Controllers
         }
         public IActionResult ReporteListaEspera()
         {
-            ///////////
+            List<DatosPaciente> Crear = new List<DatosPaciente>();
+            Crear = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).ListaDeEspera(Crear);
+
             return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
