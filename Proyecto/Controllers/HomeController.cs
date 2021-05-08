@@ -729,6 +729,7 @@ namespace Proyecto.Controllers
         }
         public IActionResult CamasVacunacion(string Municipio)
         {
+            Singleton.Instance.ListaParaFechas.Clear();
             ////////////////////////////////////////
             return View(Singleton.Instance.ListaParaFechas);
 
