@@ -149,33 +149,40 @@ namespace LibreriaDeClasesPED1
             {
                 T Apoyo = Primero.Data;
                 Primero.Data = Ultimo.Data;
-                BuscarValorUltimo(Primero);
-                int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Siguiente.Data, Primero.Data));
-                if (Comparacion == 0)
+                if (Primero.Siguiente == null)
                 {
-                    int Compa = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Izquierda.Data, Primero.Data));
-                    if (Compa == 0)
+                    int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Siguiente.Data, Primero.Data));
+                    if (Comparacion == 0)
                     {
-                        Primero.Izquierda = null;
-                        Primero.Siguiente = null;
+                        int Compa = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Izquierda.Data, Primero.Data));
+                        if (Compa == 0)
+                        {
+                            Primero.Izquierda = null;
+                            Primero.Siguiente = null;
+                        }
+                        else
+                        {
+
+                        }
                     }
-                    else 
+                    else
                     {
-                        
+                        int Cont = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Derecha.Data, Primero.Data));
+                        if (Cont == 0)
+                        {
+                            Primero.Derecha = null;
+                            Primero.Izquierda.Siguiente = null;
+                        }
+                        else
+                        {
+                            Delete(Primero, Primero.Siguiente, Condicion);
+                        }
                     }
                 }
                 else 
                 {
-                    int Cont = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Derecha.Data, Primero.Data));
-                    if (Cont == 0)
-                    {
-                        Primero.Derecha = null;
-                        Primero.Izquierda.Siguiente = null;
-                    }
-                    else
-                    {
-                        Delete(Primero, Primero.Siguiente, Condicion);
-                    }
+                    Primero = null;
+                    Ultimo = null;
                 }
                 BuscarValorUltimo(Primero);
                 return Apoyo;
