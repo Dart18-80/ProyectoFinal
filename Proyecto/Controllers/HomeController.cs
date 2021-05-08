@@ -713,6 +713,7 @@ namespace Proyecto.Controllers
         }
         public IActionResult FechadeCitas()
         {
+            ///////////////////////////////
             return View(Singleton.Instance.ListaParaFechas);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
