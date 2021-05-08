@@ -178,7 +178,7 @@ namespace LibreriaDeClasesPED1
                 int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Sig.Izquierda.Data, Raiz.Data));
                 if (Comparacion == 0) 
                 {
-                    Sig.Siguiente.Siguiente = null;
+                    BuscarEliminar(Raiz, Sig, Condicion);
                     Sig.Izquierda = null;
                 }
                 else 
@@ -186,7 +186,7 @@ namespace LibreriaDeClasesPED1
                     int Compa = Convert.ToInt32(Condicion.DynamicInvoke(Sig.Derecha.Data, Raiz.Data));
                     if (Compa == 0)
                     {
-                        Sig.Siguiente.Siguiente.Siguiente = null;
+                        BuscarEliminar(Raiz,Sig,Condicion);
                         Sig.Derecha = null;
                     }
                     else 
@@ -197,5 +197,17 @@ namespace LibreriaDeClasesPED1
             }
         }
 
+        void BuscarEliminar(NodoPrioridad<T> Raiz, NodoPrioridad<T> Sig, Delegate Condicion) 
+        {
+            int Comparar = Convert.ToInt32(Condicion.DynamicInvoke(Sig.Siguiente.Data, Raiz.Data));
+            if (Comparar == 0)
+            {
+                Sig.Siguiente = null;
+            }
+            else 
+            {
+                BuscarEliminar(Raiz,Sig.Siguiente,Condicion);
+            }
+        }
     }
 }
