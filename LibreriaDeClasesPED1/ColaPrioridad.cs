@@ -50,13 +50,11 @@ namespace LibreriaDeClasesPED1
                 {
                     Raiz.Izquierda = Nuevo;
                     Nuevo.Arriba = Raiz;
-                    Ultimo = Nuevo;
                 }
                 else 
                 {
                     Raiz.Derecha = Nuevo;
                     Nuevo.Arriba = Raiz;
-                    Ultimo = Nuevo;
                 }
             }
             else
@@ -151,7 +149,7 @@ namespace LibreriaDeClasesPED1
             {
                 T Apoyo = Primero.Data;
                 Primero.Data = Ultimo.Data;
-                Ultimo = null;
+                BuscarValorUltimo(Primero);
                 int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Siguiente.Data, Primero.Data));
                 if (Comparacion == 0)
                 {
@@ -179,11 +177,27 @@ namespace LibreriaDeClasesPED1
                         Delete(Primero, Primero.Siguiente, Condicion);
                     }
                 }
+                BuscarValorUltimo(Primero);
                 return Apoyo;
             }
             else 
             {
                 return Default;
+            }
+        }
+
+        void BuscarValorUltimo(NodoPrioridad<T> Raiz)
+        {
+            if (Raiz != null)
+            {
+                if (Raiz.Siguiente == null)
+                {
+                    Ultimo = Raiz;
+                }
+                else
+                {
+                    BuscarValorUltimo(Raiz.Siguiente);
+                }
             }
         }
         void Delete(NodoPrioridad<T> Raiz, NodoPrioridad<T> Sig, Delegate Condicion)
