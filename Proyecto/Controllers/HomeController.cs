@@ -658,7 +658,7 @@ namespace Proyecto.Controllers
         {
             if (ValidarCe!=null && Singleton.Instance.ListadePacientesParaV.Count!=0)
             {
-                for (int i = 0; i < 2; i++) 
+                for (int i = 0; i < 3; i++) 
                 {
                     if (Singleton.Instance.ListadePacientesParaV[i].Edad != 0)
                     {
@@ -666,20 +666,24 @@ namespace Proyecto.Controllers
                         {
                             DateTime Nueva = LLamadoFecha.FechaParaAsignar();
                             Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[i], Nueva);
+                            Singleton.Instance.ListaParaFechas.Add(Singleton.Instance.ListadePacientesParaV[i]);
                         }
                         else if (Singleton.Instance.Contador >= 3 && Singleton.Instance.Contador <= 5)
                         {
                             DateTime Nueva = LLamadoFecha.FechaParaAsignar();
                             Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[i], Nueva);
+                            Singleton.Instance.ListaParaFechas.Add(Singleton.Instance.ListadePacientesParaV[i]);
                         }
                         else 
                         {
                             DateTime Nueva = LLamadoFecha.FechaParaAsignar();
                             Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListadePacientesParaV[i].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[i], Nueva);
+                            Singleton.Instance.ListaParaFechas.Add(Singleton.Instance.ListadePacientesParaV[i]);
                         }
                     }
                 }
                 Singleton.Instance.ListadePacientesParaV.Clear();
+                return RedirectToAction("FechadeCitas");
             }
             else if (DeclinarCe!=null && Singleton.Instance.ListadePacientesParaV.Count != 0)
             {
@@ -700,7 +704,6 @@ namespace Proyecto.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View();
         }
         public IActionResult ReportePorcentajeVacunados()
         {
@@ -708,7 +711,11 @@ namespace Proyecto.Controllers
             ViewData["NNovacunado"] = novacunados;
             return View();
         }
-            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult FechadeCitas()
+        {
+            return View(Singleton.Instance.ListaParaFechas);
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
