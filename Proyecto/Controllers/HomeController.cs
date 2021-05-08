@@ -487,7 +487,7 @@ namespace Proyecto.Controllers
             return View();
         }
 
-         delegate int DelegadosN(DatosPaciente Nombre1, DatosPaciente Nombre2);//delegados de comparacion para la tabla hash
+        delegate int DelegadosN(DatosPaciente Nombre1, DatosPaciente Nombre2);//delegados de comparacion para la tabla hash
         delegate int DelegadosBuscarN(string Nombre2, DatosPaciente Nombre1);
         DatosPaciente CallDatosPersona = new DatosPaciente();
         [HttpPost]
