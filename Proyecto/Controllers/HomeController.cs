@@ -715,12 +715,15 @@ namespace Proyecto.Controllers
         {
             DateTime FechaVista;
             NodoFecha<DatosPaciente> Nuevo = new NodoFecha<DatosPaciente>();
-            Nuevo = Singleton.Instance.EstructuraParaCitas.RetornarEstructura().Vacunacion();
+            Nuevo = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListaParaFechas[0].Municipio).Vacunacion();
             if (Nuevo != null) 
             {
                 FechaVista = Nuevo.Fecha;
+                ViewData["Fechas"] = "La cita de los primero 3 de la cola esta programada para: "+FechaVista;
+                return View(Singleton.Instance.ListaParaFechas);
             }
             return View(Singleton.Instance.ListaParaFechas);
+
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

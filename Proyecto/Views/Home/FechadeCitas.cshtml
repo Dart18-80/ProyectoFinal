@@ -5,7 +5,7 @@
 }
 
 <h1>Fecha de Citas</h1>
-
+@ViewData["Fechas"]
 <table class="table">
     <thead>
         <tr>
@@ -31,27 +31,28 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombrePaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApellidoPaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Departamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Municipio)
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
