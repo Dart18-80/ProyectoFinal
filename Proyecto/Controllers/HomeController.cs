@@ -715,12 +715,11 @@ namespace Proyecto.Controllers
         }
         public IActionResult FechadeCitas()
         {
-            DateTime FechaVista;
-            NodoFecha<DatosPaciente> Nuevo = new NodoFecha<DatosPaciente>();
-            Nuevo = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListaParaFechas[0].Municipio).Vacunacion();
-            if (Nuevo != null) 
+            DateTime FechaVista, Comparacion;
+            Comparacion = Convert.ToDateTime("2000-08-18");
+            FechaVista = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListaParaFechas[0].Municipio).FechaPrincipal();
+            if (FechaVista != Comparacion) 
             {
-                FechaVista = Nuevo.Fecha;
                 ViewData["Fechas"] = "La cita de los primero 3 de la cola esta programada para: "+FechaVista;
                 return View(Singleton.Instance.ListaParaFechas);
             }
@@ -730,7 +729,25 @@ namespace Proyecto.Controllers
         public IActionResult CamasVacunacion(string Municipio)
         {
             Singleton.Instance.ListaParaFechas.Clear();
-            ////////////////////////////////////////
+            if (Municipio != null) 
+            {
+                NodoFecha<DatosPaciente> Primero = new NodoFecha<DatosPaciente>();
+                NodoFecha<DatosPaciente> Segundo = new NodoFecha<DatosPaciente>();
+                NodoFecha<DatosPaciente> Tercero = new NodoFecha<DatosPaciente>();
+                Primero = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).Vacunacion();
+                if (Primero != null)
+                {
+                    Segundo = Primero.PrimerHijo;
+                    if (Segundo != null) 
+                    {
+                        Tercero = Primero.SegundoHijo;
+                        if (Tercero != null) 
+                        {
+
+                        }
+                    }
+                }
+            }
             return View(Singleton.Instance.ListaParaFechas);
 
         }

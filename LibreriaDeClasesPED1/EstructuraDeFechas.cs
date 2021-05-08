@@ -60,6 +60,19 @@ namespace LibreriaDeClasesPED1
             }
         }
 
+        public DateTime FechaPrincipal()
+        {
+            if (Raiz != null) 
+            {
+                return Raiz.Fecha;
+            }
+            else
+            {
+                DateTime FechaRechazo = Convert.ToDateTime("2000-08-18");
+                return FechaRechazo;
+            }
+        }
+
         public NodoFecha<T> Vacunacion() 
         {
             NodoFecha<T> Nuevo = new NodoFecha<T>();
