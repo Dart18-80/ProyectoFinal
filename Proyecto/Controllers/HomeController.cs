@@ -756,7 +756,8 @@ namespace Proyecto.Controllers
             }
             else if (RencolarN!=null)
             {
-
+                DateTime Nuevo = LLamadoFecha.FechaParaAsignar();
+                Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).InsertarFecha(NombrePaciente,Nuevo);
             }
             return View(Singleton.Instance.ListaParaFechas);
 
