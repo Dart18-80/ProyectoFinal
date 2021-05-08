@@ -22,6 +22,22 @@ namespace LibreriaDeClasesPED1
             else
             {
                 InsertQueu(Estruct, Primero);
+                InsertarNuevoSiguiente(Estruct,Primero);
+            }
+        }
+
+        void InsertarNuevoSiguiente(NodoPrioridad<T> Nuevo, NodoPrioridad<T> Raiz) 
+        {
+            if (Raiz != null) 
+            {
+                if (Raiz.Siguiente == null)
+                {
+                    Raiz.Siguiente = Nuevo;
+                }
+                else 
+                {
+                    InsertarNuevoSiguiente(Nuevo,Raiz.Siguiente);
+                }
             }
         }
 
@@ -29,16 +45,14 @@ namespace LibreriaDeClasesPED1
         {
             if (Raiz.Derecha == null || Raiz.Izquierda == null)
             {
-                if (Raiz.Izquierda.Data == null)
+                if (Raiz.Izquierda == null)
                 {
-                    Raiz.Siguiente = Nuevo;
                     Raiz.Izquierda = Nuevo;
                     Nuevo.Arriba = Raiz;
                     Ultimo = Nuevo;
                 }
                 else
                 {
-                    Raiz.Siguiente.Siguiente = Nuevo;
                     Raiz.Derecha = Nuevo;
                     Nuevo.Arriba = Raiz;
                     Ultimo = Nuevo;
