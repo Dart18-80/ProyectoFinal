@@ -726,7 +726,7 @@ namespace Proyecto.Controllers
             return View(Singleton.Instance.ListaParaFechas);
 
         }
-        public IActionResult CamasVacunacion(string Municipio)
+        public IActionResult CamasVacunacion(string Municipio, string VacunarS, string RencolarN)
         {
             Singleton.Instance.ListaParaFechas.Clear();
             if (Municipio != null) 
@@ -737,16 +737,26 @@ namespace Proyecto.Controllers
                 Primero = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).Vacunacion();
                 if (Primero != null)
                 {
+                    Singleton.Instance.ListaParaFechas.Add(Primero.Data);
                     Segundo = Primero.PrimerHijo;
                     if (Segundo != null) 
                     {
+                        Singleton.Instance.ListaParaFechas.Add(Segundo.Data);
                         Tercero = Primero.SegundoHijo;
                         if (Tercero != null) 
                         {
-
+                            Singleton.Instance.ListaParaFechas.Add(Tercero.Data);
                         }
                     }
                 }
+            }
+            if (VacunarS!=null)
+            {
+
+            }
+            else if (RencolarN!=null)
+            {
+
             }
             return View(Singleton.Instance.ListaParaFechas);
 

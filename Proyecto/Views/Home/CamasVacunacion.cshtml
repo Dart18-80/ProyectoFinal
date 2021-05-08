@@ -9,7 +9,7 @@
 <<form asp-action="CamasVacunacion" method="get">
     <div class="from-action no-gutters">
         <p>
-             Seleccione Hospital :<select required name="Municipio">
+            Seleccione Hospital :<select required name="Municipio">
                 <option value="">Eliga Hospital</option>
                 <option>Acatenango</option>
                 <option>Agua Blanca</option>
@@ -390,36 +390,44 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombrePaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApellidoPaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Departamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Municipio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trabajo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enfermedades)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prioridad)
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaciente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trabajo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Enfermedades)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prioridad)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<form asp-action="CamasVacunacion" method="get">
+    <input type="submit" class="btn btn-primary" name="VacunarS" value="Vacunar (Presente)" />
+</form>
+<br />
+<form asp-action="CamasVacunacion" method="get">
+    <input type="submit" class="btn btn-primary" name="RencolarN" value="Reencolar (Ausente)" />
+</form>
