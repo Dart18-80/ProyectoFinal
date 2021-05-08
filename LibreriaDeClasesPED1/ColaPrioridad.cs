@@ -29,7 +29,7 @@ namespace LibreriaDeClasesPED1
         {
             if (Raiz.Derecha == null || Raiz.Izquierda == null)
             {
-                if (Raiz.Izquierda == null)
+                if (Raiz.Izquierda.Data == null)
                 {
                     Raiz.Siguiente = Nuevo;
                     Raiz.Izquierda = Nuevo;
@@ -134,19 +134,37 @@ namespace LibreriaDeClasesPED1
         {
             if (Primero != null)
             {
-                T Aux = Primero.Data;
+                T Apoyo = Primero.Data;
                 Primero.Data = Ultimo.Data;
-                if (Primero.Siguiente != null)
+                Ultimo = null;
+                int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Siguiente.Data, Primero.Data));
+                if (Comparacion == 0)
                 {
-                    Delete(Primero, Primero.Siguiente, Condicion);
+                    int Compa = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Izquierda.Data, Primero.Data));
+                    if (Compa == 0)
+                    {
+                        Primero.Izquierda = null;
+                        Primero.Siguiente = null;
+                    }
+                    else 
+                    {
+                        
+                    }
                 }
-                else
+                else 
                 {
-                    Primero = null;
-                    Ultimo = null;
-
+                    int Cont = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Derecha.Data, Primero.Data));
+                    if (Cont == 0)
+                    {
+                        Primero.Derecha = null;
+                        Primero.Izquierda.Siguiente = null;
+                    }
+                    else
+                    {
+                        Delete(Primero, Primero.Siguiente, Condicion);
+                    }
                 }
-                return Aux;
+                return Apoyo;
             }
             else 
             {
@@ -155,49 +173,27 @@ namespace LibreriaDeClasesPED1
         }
         void Delete(NodoPrioridad<T> Raiz, NodoPrioridad<T> Sig, Delegate Condicion)
         {
-            if (Sig != null)
+            if (Sig != null) 
             {
-                if (Sig.Siguiente != null)
+                int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Sig.Izquierda.Data, Raiz.Data));
+                if (Comparacion == 0) 
                 {
-                    Delete(Raiz.Siguiente, Sig.Siguiente, Condicion);
+                    Sig.Siguiente.Siguiente = null;
+                    Sig.Izquierda = null;
                 }
-                else
+                else 
                 {
-                    Ultimo = Raiz;
-                    Raiz.Siguiente = null;
-                    Sig = null;
+                    int Compa = Convert.ToInt32(Condicion.DynamicInvoke(Sig.Derecha.Data, Raiz.Data));
+                    if (Compa == 0)
+                    {
+                        Sig.Siguiente.Siguiente.Siguiente = null;
+                        Sig.Derecha = null;
+                    }
+                    else 
+                    {
+                        Delete(Raiz,Sig.Siguiente,Condicion);
+                    }
                 }
-            }
-            else
-            {
-
-            }
-        }
-
-        public List<T> Tareas()
-        {
-            List<T> Nueva = new List<T>();
-            if (Primero != null)
-            {
-                return Tareas(Primero, Primero.Siguiente, Nueva);
-            }
-            else
-            {
-                return default;
-            }
-        }
-
-        List<T> Tareas(NodoPrioridad<T> Raiz, NodoPrioridad<T> Sig, List<T> Nueva)
-        {
-            if (Sig == null)
-            {
-                Nueva.Add(Raiz.Data);
-                return Nueva;
-            }
-            else
-            {
-                Nueva.Add(Raiz.Data);
-                return Tareas(Raiz.Siguiente, Sig.Siguiente, Nueva);
             }
         }
 

@@ -636,19 +636,16 @@ namespace Proyecto.Controllers
                 NodoDefault.NombrePaciente = "Ya no se encuentra ninguno mas";
 
                 PrimerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad,NodoDefault);
-                Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(PrimerPaciente);
                 Singleton.Instance.ListadePacientesParaV.Add(PrimerPaciente);
 
                 SegundoPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
-                Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(SegundoPaciente);
                 Singleton.Instance.ListadePacientesParaV.Add(SegundoPaciente);
 
                 TercerPaciente = Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
-                Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).returnNode(Prioridad, NodoDefault);
                 Singleton.Instance.HospitalesColas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).HeapSort(Prioridad);
                 Singleton.Instance.ListaMuesraPrimerosCola.Add(TercerPaciente);
                 Singleton.Instance.ListadePacientesParaV.Add(TercerPaciente);
