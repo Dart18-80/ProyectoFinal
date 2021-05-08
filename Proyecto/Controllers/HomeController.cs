@@ -529,7 +529,7 @@ namespace Proyecto.Controllers
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
                 Prioridad = PrioridadTotal
             };
-            vacunados += 1;
+            novacunados += 1;
 
             //Ingreso de la posicion a la estructura de tabla hash
 
@@ -702,7 +702,13 @@ namespace Proyecto.Controllers
             }
             return View();
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult ReportePorcentajeVacunados()
+        {
+            ViewData["NVacunado"] = vacunados;
+            ViewData["NNovacunado"] = novacunados;
+            return View();
+        }
+            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
