@@ -1,11 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="text-center">
-    <h3>CENTRO DE VACUNACION 2021</h3>
-    <a href="https://localhost:44382/Home/CrearPaciente" class="btn btn-primary ">Paciente Nuevo</a><br /><br />
-    <a href="https://localhost:44382/Home/BuscarporAVLGeneral" class="btn btn-primary ">Busqueda General de Hospitales </a>
-    <a href="https://localhost:44382/Home/BuscarPorHospitalAVL" class="btn btn-primary ">Busqueda Por Hospital </a><br /><br />
-    <a href="https://localhost:44382/Home/DatosParaVacunacion" class="btn btn-primary ">Aceptar Datos de Vacunacion por hospital </a>
+<body >
 
-</div>
+    <div class="text-center">
+        <h2 style="color:slategrey">CENTRO DE INGRESO PARA VACUNACION 2021</h2><br /><br />
+        <p>Ingreso de paciente a un hospital cerca de su ubicacion</p>
+        <a href="https://localhost:44382/Home/CrearPaciente" class="btn btn-outline-primary">Nuevo Paciente</a><br /><br />
+                                                                                                                     <p>Busquedas en AVL</p>
+        <a href="https://localhost:44382/Home/BuscarporAVLGeneral" class="btn btn-outline-primary ">Busqueda Hospital General </a>
+
+        <a href="https://localhost:44382/Home/BuscarPorHospitalAVL" class="btn btn-outline-primary "> Busqueda por Hospital </a><br /><br />
+
+        <p>Simulacion con 3 pacientes atendidos simultaneamente</p>
+        <a href="https://localhost:44382/Home/DatosParaVacunacion" class="btn btn-outline-primary ">Comenzar Simulacion</a><br /><br />
+                                                                                                                                 
+        <a href="https://localhost:44382/Home/Reportes" class="btn btn-outline-success ">Reportes </a><br /><br />
+    </div>
+</body>

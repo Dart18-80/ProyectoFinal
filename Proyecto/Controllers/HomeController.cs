@@ -844,13 +844,13 @@ namespace Proyecto.Controllers
             List<DatosPaciente> Crear = new List<DatosPaciente>();
             if (Municipio!=null)
             {
-                Crear = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).ListaDeEspera(Crear);
+                Crear = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).ListaDeEspera(Crear);
 
             }
 
             return View(Crear);
         }
-        public IActionResult Reportevacunados(string Municipio)
+        public IActionResult Reportevacunados()
         {
             return View(Singleton.Instance.ListadoVacunados);
         }

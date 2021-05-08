@@ -352,7 +352,7 @@
                 <option>Zunil</option>
                 <option>Zunilito</option>
             </select>
-            <input type="submit" value="Aceptar" class="btn btn-primary" />
+            <input type="submit" value="Aceptar" class="btn btn-outline-primary" />
         </p>
     </div>
 </form>
@@ -375,7 +375,7 @@
                 <option>Si</option>
                 <option>No</option>
             </select>
-            <input type="submit" value="Aceptar cambios" class="btn btn-primary" />
+            <input type="submit" value="Aceptar cambios" class="btn btn-outline-primary" />
         </p>
     </div>
 </form>
@@ -399,15 +399,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Municipio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trabajo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Enfermedades)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prioridad)
             </th>
             <th></th>
         </tr>
@@ -434,18 +425,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Municipio)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Trabajo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Enfermedades)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prioridad)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { }) |
-                </td>
+
             </tr>
         }
     </tbody>

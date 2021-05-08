@@ -9,7 +9,7 @@
     <div class="from-action no-gutters">
         <p>
             Por Nombre:<input type="text" name="BuscarNombre" value="@ViewData["BusquedaNomb"]" /> 
-            <input type="submit" value="Buscar" class="btn btn-primary" />
+            <input type="submit" value="Buscar" class="btn btn-outline-primary" />
         </p>
     </div>
 </form>
@@ -17,7 +17,7 @@
     <div class="from-action no-gutters">
         <p>
             Por Apellido :<input type="text" name="BuscarApellido" value="@ViewData["BusquedaApe"]" />
-            <input type="submit" value="Buscar" class="btn btn-primary" />
+            <input type="submit" value="Buscar" class="btn btn-outline-primary" />
         </p>
     </div>
 </form>
@@ -25,7 +25,7 @@
     <div class="from-action no-gutters">
         <p>
             Por DPI:<input type="text" name="BuscarDPI" value="@ViewData["BusquedaDpi"]" />
-            <input type="submit" value="Buscar" class="btn btn-primary" />
+            <input type="submit" value="Buscar" class="btn btn-outline-primary" />
         </p>
     </div>
 </form>
@@ -81,10 +81,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Prioridad)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>
         }
