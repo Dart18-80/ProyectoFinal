@@ -98,5 +98,38 @@ namespace LibreriaDeClasesPED1
                 }
             }
         }
+
+        public List<T> ListaDeEspera(List<T> Nueva) 
+        {
+            if (Raiz != null)
+            {
+                return ListaDeEspera(Nueva, Raiz);
+            }
+            else 
+            {
+                return Nueva;
+            }
+        }
+
+        List<T> ListaDeEspera(List<T> Nueva, NodoFecha<T> Sig) 
+        {
+            if (Sig != null)
+            {
+                Nueva.Add(Sig.Data);
+                if (Sig.PrimerHijo != null) 
+                {
+                    Nueva.Add(Sig.PrimerHijo.Data);
+                }
+                if (Sig.SegundoHijo != null) 
+                {
+                    Nueva.Add(Sig.SegundoHijo.Data);
+                }
+                return ListaDeEspera(Nueva,Sig.Siguiente);
+            }
+            else 
+            {
+                return Nueva;
+            }
+        }
     }
 }
