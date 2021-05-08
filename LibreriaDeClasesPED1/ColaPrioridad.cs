@@ -149,7 +149,7 @@ namespace LibreriaDeClasesPED1
             {
                 T Apoyo = Primero.Data;
                 Primero.Data = Ultimo.Data;
-                if (Primero.Siguiente == null)
+                if (Primero.Siguiente != null)
                 {
                     int Comparacion = Convert.ToInt32(Condicion.DynamicInvoke(Primero.Siguiente.Data, Primero.Data));
                     if (Comparacion == 0)
