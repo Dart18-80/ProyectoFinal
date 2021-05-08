@@ -720,6 +720,7 @@ namespace Proyecto.Controllers
             Nuevo = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListaParaFechas[0].Municipio).Vacunacion();
             if (Nuevo != null) 
             {
+
                 FechaVista = Nuevo.Fecha;
                 ViewData["Fechas"] = "La cita de los primero 3 de la cola esta programada para: "+FechaVista;
                 return View(Singleton.Instance.ListaParaFechas);
