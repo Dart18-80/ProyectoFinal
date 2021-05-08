@@ -626,6 +626,7 @@ namespace Proyecto.Controllers
         public IActionResult DatosParaVacunacion(string Municipio)//Creacion Para Verificar a los primeros de la cola
         {
             Singleton.Instance.ListaMuesraPrimerosCola.Clear();
+            Singleton.Instance.ListaParaFechas.Clear();
             if (Municipio!=null)
             {
                 DelegadosN Prioridad = new DelegadosN(CallDatosPersona.CompareToPrioridad);
@@ -656,6 +657,7 @@ namespace Proyecto.Controllers
         }
         public IActionResult DatosParaAceptarPaciente(string ValidarCe, string DeclinarCe) 
         {
+            Singleton.Instance.ListaParaFechas.Clear();
             if (ValidarCe!=null && Singleton.Instance.ListadePacientesParaV.Count!=0)
             {
                 for (int i = 0; i < 3; i++) 
@@ -722,6 +724,12 @@ namespace Proyecto.Controllers
                 ViewData["Fechas"] = "La cita de los primero 3 de la cola esta programada para: "+FechaVista;
                 return View(Singleton.Instance.ListaParaFechas);
             }
+            return View(Singleton.Instance.ListaParaFechas);
+
+        }
+        public IActionResult CamasVacunacion(string Municipio)
+        {
+            ////////////////////////////////////////
             return View(Singleton.Instance.ListaParaFechas);
 
         }
