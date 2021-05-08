@@ -854,6 +854,11 @@ namespace Proyecto.Controllers
         {
             return View(Singleton.Instance.ListadoVacunados);
         }
+        
+         public IActionResult Reportes()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
