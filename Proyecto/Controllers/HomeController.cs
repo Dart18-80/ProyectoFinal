@@ -758,8 +758,9 @@ namespace Proyecto.Controllers
                     var NuevoHash = new Models.DatosPaciente{ 
                     NombrePaciente=Singleton.Instance.ListaParaFechas[0].NombrePaciente,
                     ApellidoPaciente = Singleton.Instance.ListaParaFechas[0].ApellidoPaciente,
+                    DPIPartidadenacimiento=Singleton.Instance.ListaParaFechas[0].DPIPartidadenacimiento
                     };
-                    Singleton.Instance.TablaHashPacientes.FuncionHash();
+                    int posicion =Singleton.Instance.TablaHashPacientes.FuncionHash(NuevoHash.NombrePaciente, NuevoHash.ApellidoPaciente, NuevoHash.DPIPartidadenacimiento);
                 }
             }
   
