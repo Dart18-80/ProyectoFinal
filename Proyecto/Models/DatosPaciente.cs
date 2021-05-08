@@ -17,8 +17,7 @@ namespace Proyecto.Models
         public string Trabajo { get; set; }
         public string Enfermedades { get; set; }
         public int Prioridad { get; set; }
-
-
+        public string EstadoVacunado { get; set; }
         public int BuscarPorDPI(string DP1, DatosPaciente DP12)
         {
             return DP1.CompareTo(DP12.DPIPartidadenacimiento);

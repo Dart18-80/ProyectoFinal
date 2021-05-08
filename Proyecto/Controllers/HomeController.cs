@@ -720,7 +720,7 @@ namespace Proyecto.Controllers
             FechaVista = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.ListaParaFechas[0].Municipio).FechaPrincipal();
             if (FechaVista != Comparacion) 
             {
-                ViewData["Fechas"] = "La cita de los primero 3 de la cola esta programada para: "+FechaVista;
+                ViewData["Fechas"] = "La cita de los primero de la cola esta programada para: "+FechaVista;
                 return View(Singleton.Instance.ListaParaFechas);
             }
             return View(Singleton.Instance.ListaParaFechas);
@@ -734,7 +734,7 @@ namespace Proyecto.Controllers
                 NodoFecha<DatosPaciente> Primero = new NodoFecha<DatosPaciente>();
                 NodoFecha<DatosPaciente> Segundo = new NodoFecha<DatosPaciente>();
                 NodoFecha<DatosPaciente> Tercero = new NodoFecha<DatosPaciente>();
-                Primero = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).Vacunacion();
+                Primero = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).Vacunacion();
                 if (Primero != null)
                 {
                     Singleton.Instance.ListaParaFechas.Add(Primero.Data);
