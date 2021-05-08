@@ -527,7 +527,8 @@ namespace Proyecto.Controllers
                 Departamento = Singleton.Instance.ListaParaView[0].Departamento,
                 Enfermedades = Regex.Replace(collection["Enfermedades"], @"\s", ""),
                 Municipio = Regex.Replace(collection["Municipio"], @"\s", "").ToUpper(),
-                Prioridad = PrioridadTotal
+                Prioridad = PrioridadTotal,
+                EstadoVacunado = "No"
             };
             novacunados += 1;
 
@@ -726,7 +727,7 @@ namespace Proyecto.Controllers
             return View(Singleton.Instance.ListaParaFechas);
 
         }
-        public IActionResult CamasVacunacion(string Municipio, string VacunarS, string RencolarN)
+        public IActionResult CamasVacunacion(string Municipio, string Paciente1, string Paciente2, string Paciente3)
         {
             Singleton.Instance.ListaParaFechas.Clear();
             if (Municipio != null) 
@@ -750,17 +751,28 @@ namespace Proyecto.Controllers
                     }
                 }
             }
-            if (VacunarS!=null)
+            if (Paciente1!=null)
             {
-
+                if (Paciente1=="Si")
+                {
+                    var NuevoHash = new Models.DatosPaciente{ 
+                    NombrePaciente=Singleton.Instance.ListaParaFechas[0].NombrePaciente,
+                    ApellidoPaciente = Singleton.Instance.ListaParaFechas[0].ApellidoPaciente,
+                    };
+                    Singleton.Instance.TablaHashPacientes.FuncionHash();
+                }
             }
-            else if (RencolarN!=null)
-            {
+  
                 DateTime Nuevo = LLamadoFecha.FechaParaAsignar();
-                Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).InsertarFecha(NombrePaciente,Nuevo);
-            }
+                Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[0],Nuevo);
+            
             return View(Singleton.Instance.ListaParaFechas);
 
+        }
+        public IActionResult ReporteListaEspera()
+        {
+            ///////////
+            return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

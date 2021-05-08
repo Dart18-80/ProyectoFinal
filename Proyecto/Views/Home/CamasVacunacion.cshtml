@@ -356,6 +356,29 @@
         </p>
     </div>
 </form>
+<form asp-action="BuscarporAVLGeneral" method="get">
+    <div class="from-action no-gutters">
+        <h3>Seleccione si el paciente asistió  a la cita:</h3>
+        <p>
+            Primer Paciente :<select name="Paciente1">
+                <option value="">Eliga opcion</option>
+                <option>Si</option>
+                <option>No</option>
+            </select>
+            Segundo Paciente :<select name="Paciente2">
+                <option value="">Eliga opcion</option>
+                <option>Si</option>
+                <option>No</option>
+            </select>
+            Tercer Paciente :<select name="Paciente3">
+                <option value="">Eliga opcion</option>
+                <option>Si</option>
+                <option>No</option>
+            </select>
+            <input type="submit" value="Aceptar cambios" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -420,14 +443,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Prioridad)
                 </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { }) |
+                </td>
             </tr>
         }
     </tbody>
 </table>
-<form asp-action="CamasVacunacion" method="get">
-    <input type="submit" class="btn btn-primary" name="VacunarS" value="Vacunar (Presente)" />
-</form>
-<br />
-<form asp-action="CamasVacunacion" method="get">
-    <input type="submit" class="btn btn-primary" name="RencolarN" value="Reencolar (Ausente)" />
-</form>
