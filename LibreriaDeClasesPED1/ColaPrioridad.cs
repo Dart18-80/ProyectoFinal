@@ -33,6 +33,7 @@ namespace LibreriaDeClasesPED1
                 if (Raiz.Siguiente == null)
                 {
                     Raiz.Siguiente = Nuevo;
+                    Ultimo = Nuevo;
                 }
                 else 
                 {
@@ -51,7 +52,7 @@ namespace LibreriaDeClasesPED1
                     Nuevo.Arriba = Raiz;
                     Ultimo = Nuevo;
                 }
-                else
+                else 
                 {
                     Raiz.Derecha = Nuevo;
                     Nuevo.Arriba = Raiz;
