@@ -55,6 +55,8 @@ namespace Proyecto.Controllers
                 //Negacion para que ya no lo vuelva a hacer
                 Singleton.Instance.VerificacionHospitales++;
             }
+            Singleton.Instance.Listacamasvacunacion.Clear();
+
             return View();
         }
         public IActionResult CrearPaciente()//Creacion e ingreso de datos del usuario
@@ -730,7 +732,7 @@ namespace Proyecto.Controllers
         public IActionResult CamasVacunacion(string Municipio, string Paciente1, string Paciente2, string Paciente3)
         {
             Singleton.Instance.ListaParaFechas.Clear();
-            if (Municipio != null) 
+            if (Municipio != null)
             {
                 NodoFecha<DatosPaciente> Primero = new NodoFecha<DatosPaciente>();
                 NodoFecha<DatosPaciente> Segundo = new NodoFecha<DatosPaciente>();
@@ -738,15 +740,15 @@ namespace Proyecto.Controllers
                 Primero = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Regex.Replace(Municipio, @"\s", "").ToUpper()).Vacunacion();
                 if (Primero != null)
                 {
-                    Singleton.Instance.ListaParaFechas.Add(Primero.Data);
+                    Singleton.Instance.Listacamasvacunacion.Add(Primero.Data);
                     Segundo = Primero.PrimerHijo;
                     if (Segundo != null) 
                     {
-                        Singleton.Instance.ListaParaFechas.Add(Segundo.Data);
+                        Singleton.Instance.Listacamasvacunacion.Add(Segundo.Data);
                         Tercero = Primero.SegundoHijo;
                         if (Tercero != null) 
                         {
-                            Singleton.Instance.ListaParaFechas.Add(Tercero.Data);
+                            Singleton.Instance.Listacamasvacunacion.Add(Tercero.Data);
                         }
                     }
                 }
@@ -756,26 +758,101 @@ namespace Proyecto.Controllers
                 if (Paciente1=="Si")
                 {
                     var NuevoHash = new Models.DatosPaciente{ 
-                    NombrePaciente=Singleton.Instance.ListaParaFechas[0].NombrePaciente,
-                    ApellidoPaciente = Singleton.Instance.ListaParaFechas[0].ApellidoPaciente,
-                    DPIPartidadenacimiento=Singleton.Instance.ListaParaFechas[0].DPIPartidadenacimiento
+                    NombrePaciente=Singleton.Instance.Listacamasvacunacion[0].NombrePaciente,
+                    ApellidoPaciente = Singleton.Instance.Listacamasvacunacion[0].ApellidoPaciente,
+                    DPIPartidadenacimiento=Singleton.Instance.Listacamasvacunacion[0].DPIPartidadenacimiento
                     };
                     int posicion =Singleton.Instance.TablaHashPacientes.FuncionHash(NuevoHash.NombrePaciente, NuevoHash.ApellidoPaciente, NuevoHash.DPIPartidadenacimiento);
+                    for (int i = 0; i < Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista.Length; i++)
+                    {
+                        if (Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data.NombrePaciente==NuevoHash.NombrePaciente)
+                        {
+                            Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data.EstadoVacunado = "Si";
+                            Singleton.Instance.ListadoVacunados.Add(Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data);
+                            vacunados += 1;
+                            novacunados -= 1;
+                        }
+                    }
+                }
+                else
+                {
+                    DateTime Nuevo = LLamadoFecha.FechaParaAsignar();
+                    Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.Listacamasvacunacion[0].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[0], Nuevo);
                 }
             }
-  
-                DateTime Nuevo = LLamadoFecha.FechaParaAsignar();
-                Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[0],Nuevo);
-            
-            return View(Singleton.Instance.ListaParaFechas);
+            if (Paciente2 != null)
+            {
+                if (Paciente2 == "Si")
+                {
+                    var NuevoHash = new Models.DatosPaciente
+                    {
+                        NombrePaciente = Singleton.Instance.Listacamasvacunacion[1].NombrePaciente,
+                        ApellidoPaciente = Singleton.Instance.Listacamasvacunacion[1].ApellidoPaciente,
+                        DPIPartidadenacimiento = Singleton.Instance.Listacamasvacunacion[1].DPIPartidadenacimiento
+                    };
+                    int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash(NuevoHash.NombrePaciente, NuevoHash.ApellidoPaciente, NuevoHash.DPIPartidadenacimiento);
+                    for (int i = 0; i < Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista.Length; i++)
+                    {
+                        if (Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data.NombrePaciente == NuevoHash.NombrePaciente)
+                        {
+                            Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data.EstadoVacunado = "Si";
+                            Singleton.Instance.ListadoVacunados.Add(Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data);
+                            vacunados += 1;
+                            novacunados -= 1;
+                        }
+                    }
+                }
+                else
+                {
+                    DateTime Nuevo = LLamadoFecha.FechaParaAsignar();
+                    Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.Listacamasvacunacion[1].Municipio).InsertarFecha(Singleton.Instance.Listacamasvacunacion[1], Nuevo);
+                }
+            }
+            if (Paciente3 != null)
+            {
+                if (Paciente3 == "Si")
+                {
+                    var NuevoHash = new Models.DatosPaciente
+                    {
+                        NombrePaciente = Singleton.Instance.Listacamasvacunacion[2].NombrePaciente,
+                        ApellidoPaciente = Singleton.Instance.Listacamasvacunacion[2].ApellidoPaciente,
+                        DPIPartidadenacimiento = Singleton.Instance.Listacamasvacunacion[2].DPIPartidadenacimiento
+                    };
+                    int posicion = Singleton.Instance.TablaHashPacientes.FuncionHash(NuevoHash.NombrePaciente, NuevoHash.ApellidoPaciente, NuevoHash.DPIPartidadenacimiento);
+                    for (int i = 0; i < Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista.Length; i++)
+                    {
+                        if (Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data.NombrePaciente == NuevoHash.NombrePaciente)
+                        {
+                            Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data.EstadoVacunado = "Si";
+                            Singleton.Instance.ListadoVacunados.Add(Singleton.Instance.TablaHashPacientes.ArrayHash[posicion].lista[i].Data);
+                            vacunados += 1;
+                            novacunados = -1;
+                        }
+                    }
+                }
+                else
+                {
+                    DateTime Nuevo = LLamadoFecha.FechaParaAsignar();
+                    Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Singleton.Instance.Listacamasvacunacion[2].Municipio).InsertarFecha(Singleton.Instance.ListadePacientesParaV[2], Nuevo);
+                }
+            }
+            return View(Singleton.Instance.Listacamasvacunacion);
 
         }
-        public IActionResult ReporteListaEspera()
+        public IActionResult ReporteListaEspera(string Municipio)
         {
             List<DatosPaciente> Crear = new List<DatosPaciente>();
-            Crear = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).ListaDeEspera(Crear);
+            if (Municipio!=null)
+            {
+                Crear = Singleton.Instance.EstructuraParaCitas.RetornarEstructura(Municipio).ListaDeEspera(Crear);
 
-            return View();
+            }
+
+            return View(Crear);
+        }
+        public IActionResult Reportevacunados(string Municipio)
+        {
+            return View(Singleton.Instance.ListadoVacunados);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

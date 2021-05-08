@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<Proyecto.Models.DatosPaciente>
 
 @{
-    ViewData["Title"] = "CamasVacunacion";
+    ViewData["Title"] = "ReporteListaEspera";
 }
 
-<h1>CamasVacunacion</h1>
+<h1>ReporteListaEspera</h1>
 
-<form asp-action="CamasVacunacion" method="get">
+<form asp-action="ReporteListaEspera" method="get">
     <div class="from-action no-gutters">
         <p>
             Seleccione Hospital :<select required name="Municipio">
@@ -356,29 +356,6 @@
         </p>
     </div>
 </form>
-<form asp-action="CamasVacunacion" method="get">
-    <div class="from-action no-gutters">
-        <h3>Seleccione si el paciente asistió  a la cita:</h3>
-        <p>
-            Primer Paciente :<select name="Paciente1">
-                <option value="">Eliga opcion</option>
-                <option>Si</option>
-                <option>No</option>
-            </select>
-            Segundo Paciente :<select name="Paciente2">
-                <option value="">Eliga opcion</option>
-                <option>Si</option>
-                <option>No</option>
-            </select>
-            Tercer Paciente :<select name="Paciente3">
-                <option value="">Eliga opcion</option>
-                <option>Si</option>
-                <option>No</option>
-            </select>
-            <input type="submit" value="Aceptar cambios" class="btn btn-primary" />
-        </p>
-    </div>
-</form>
 <table class="table">
     <thead>
         <tr>
@@ -400,53 +377,31 @@
             <th>
                 @Html.DisplayNameFor(model => model.Municipio)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trabajo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Enfermedades)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prioridad)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombrePaciente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApellidoPaciente)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Edad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Departamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Municipio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Trabajo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Enfermedades)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prioridad)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { }) |
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApellidoPaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DPIPartidadenacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Municipio)
+            </td>
+        </tr>
+}
     </tbody>
 </table>

@@ -35,6 +35,8 @@ namespace Proyecto.Helpers
         public List<DatosPaciente> ListaMuesraPrimerosCola = new List<DatosPaciente>();
         public List<DatosPaciente> ListadePacientesParaV = new List<DatosPaciente>();
         public List<DatosPaciente> ListaParaFechas = new List<DatosPaciente>();
+        public List<DatosPaciente> Listacamasvacunacion = new List<DatosPaciente>();
+        public List<DatosPaciente> ListadoVacunados = new List<DatosPaciente>();
 
         // Llamado de las estructuras que guardar los hospitales
         public ColaEstructura<ColaPrioridad<DatosPaciente>> HospitalesColas = new ColaEstructura<ColaPrioridad<DatosPaciente>>();
